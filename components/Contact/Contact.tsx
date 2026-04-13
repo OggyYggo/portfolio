@@ -13,18 +13,59 @@ import { Separator } from '@/components/ui/separator'
 import { Card, CardContent } from '@/components/ui/card'
 import { FiMail, FiLinkedin, FiGithub, FiSend } from 'react-icons/fi'
 import { BsDribbble } from 'react-icons/bs'
-import { profile } from '@/data/profile'
+import { profile, buildEmail } from '@/data/profile'
 
 // ─── Validation Schema ─────────────────────────────────────────────────────
 
 const schema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  subject: z.string().min(4, 'Subject must be at least 4 characters'),
-  message: z.string().min(20, 'Message must be at least 20 characters'),
+  name: z.string().min(2, 'Name must be at least 2 characters').max(100),
+  email: z.string().email('Please enter a valid email address').max(255),
+  subject: z.string().min(4, 'Subject must be at least 4 characters').max(200),
+  message: z.string().min(20, 'Message must be at least 20 characters').max(5000),
 })
 
 type FormData = z.infer<typeof schema>
+
+// ─── Input Sanitization ────────────────────────────────────────────────────
+
+/**
+ * Strip potentially dangerous HTML/script tags from user input.
+ * Always duplicate this validation server-side when a backend is wired up.
+ */
+function sanitizeInput<T extends Record<string, unknown>>(data: T): T {
+  const sanitized = { ...data } as Record<string, unknown>
+  for (const key of Object.keys(sanitized)) {
+    if (typeof sanitized[key] === 'string') {
+      sanitized[key] = (sanitized[key] as string)
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#x27;')
+    }
+  }
+  return sanitized as T
+}
+
+// ─── Simple Rate-Limit Tracker (client-side) ───────────────────────────────
+// When a real backend is added, replace this with server-side rate limiting
+// (e.g. @upstash/ratelimit, Vercel Edge middleware, or Resend built-in limits).
+
+const RATE_LIMIT_WINDOW_MS = 60_000 // 1 minute
+const RATE_LIMIT_MAX_SUBMISSIONS = 3
+
+let submissionTimestamps: number[] = []
+
+function isRateLimited(): boolean {
+  const now = Date.now()
+  submissionTimestamps = submissionTimestamps.filter(
+    (ts) => now - ts < RATE_LIMIT_WINDOW_MS,
+  )
+  return submissionTimestamps.length >= RATE_LIMIT_MAX_SUBMISSIONS
+}
+
+function recordSubmission() {
+  submissionTimestamps.push(Date.now())
+}
 
 // ─── Fade animation ────────────────────────────────────────────────────────
 
@@ -49,15 +90,31 @@ export default function Contact() {
   const onSubmit = async (data: FormData) => {
     setLoading(true)
 
+    // Client-side rate limiting
+    if (isRateLimited()) {
+      alert('Too many submissions. Please wait a minute before trying again.')
+      setLoading(false)
+      return
+    }
+
+    // Sanitize inputs before any future backend forwarding
+    const sanitized = sanitizeInput(data)
+
     // Replace this with your preferred email service:
     // - Resend (recommended): https://resend.com
     // - EmailJS: https://emailjs.com
     // - Formspree: https://formspree.io
-    console.log('Form submitted:', data)
+    //
+    // IMPORTANT: When wiring up a backend, also:
+    //  1. Re-validate with Zod on the server (never trust client)
+    //  2. Add server-side rate limiting
+    //  3. Add CSRF protection if using cookie-based sessions
+    console.log('Form submitted (sanitized):', sanitized)
 
     // Simulate API call
     await new Promise((res) => setTimeout(res, 1200))
 
+    recordSubmission()
     setLoading(false)
     setSubmitted(true)
     reset()
@@ -221,11 +278,11 @@ export default function Contact() {
                 Email me directly
               </p>
               <a
-                href={`mailto:${profile.email}`}
+                href={`mailto:${buildEmail()}`}
                 className="text-sm font-medium hover:text-accent-green transition-colors flex items-center gap-2"
               >
                 <FiMail size={14} className="text-accent-green shrink-0" />
-                {profile.email}
+                {buildEmail()}
               </a>
             </CardContent>
           </Card>

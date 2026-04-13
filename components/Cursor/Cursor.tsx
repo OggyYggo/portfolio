@@ -3,10 +3,13 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
+const HOVER_SELECTOR = 'a, button, [data-cursor="hover"], input, textarea, label'
+
 export default function Cursor() {
   const cursorRef = useRef<HTMLDivElement>(null)
   const circleRef = useRef<HTMLDivElement>(null)
   const isHovering = useRef(false)
+  const trackedElements = useRef<WeakSet<Element>>(new WeakSet())
 
   useEffect(() => {
     const cursor = cursorRef.current
@@ -26,8 +29,9 @@ export default function Cursor() {
       })
     }
 
-    // Scale up on hoverable elements
-    const onEnter = () => {
+    // Scale up on hoverable elements — via event delegation
+    const onHoverEnter = (e: Event) => {
+      const target = e.target as Element
       if (isHovering.current) return
       isHovering.current = true
       gsap.to(circle, {
@@ -38,7 +42,7 @@ export default function Cursor() {
       })
     }
 
-    const onLeave = () => {
+    const onHoverLeave = () => {
       isHovering.current = false
       gsap.to(circle, {
         scale: 1,
@@ -59,32 +63,36 @@ export default function Cursor() {
       gsap.to(cursor, { opacity: 1, duration: 0.2 })
     }
 
-    // Attach hover listeners to interactive elements
-    const addHoverListeners = () => {
-      const targets = document.querySelectorAll(
-        'a, button, [data-cursor="hover"], input, textarea, label'
-      )
-      targets.forEach((el) => {
-        el.addEventListener('mouseenter', onEnter)
-        el.addEventListener('mouseleave', onLeave)
-      })
+    // Event delegation: attach listeners once on document.body
+    // instead of per-element to avoid memory leaks.
+    const onBodyMouseOver = (e: Event) => {
+      const target = e.target as Element
+      if (target.matches(HOVER_SELECTOR)) {
+        onHoverEnter(e)
+      }
     }
 
-    addHoverListeners()
+    const onBodyMouseOut = (e: Event) => {
+      const target = e.target as Element
+      if (target.matches(HOVER_SELECTOR)) {
+        onHoverLeave()
+      }
+    }
+
+    document.addEventListener('mouseover', onBodyMouseOver)
+    document.addEventListener('mouseout', onBodyMouseOut)
     window.addEventListener('mousemove', onMove)
     document.addEventListener('mouseleave', onMouseOut)
     document.addEventListener('mouseenter', onMouseIn)
 
-    // Re-attach when DOM changes (e.g. filter updates in Portfolio)
-    const observer = new MutationObserver(addHoverListeners)
-    observer.observe(document.body, { childList: true, subtree: true })
-
     return () => {
       document.body.style.cursor = ''
+      document.removeEventListener('mouseover', onBodyMouseOver)
+      document.removeEventListener('mouseout', onBodyMouseOut)
       window.removeEventListener('mousemove', onMove)
       document.removeEventListener('mouseleave', onMouseOut)
       document.removeEventListener('mouseenter', onMouseIn)
-      observer.disconnect()
+      trackedElements.current = new WeakSet()
     }
   }, [])
 

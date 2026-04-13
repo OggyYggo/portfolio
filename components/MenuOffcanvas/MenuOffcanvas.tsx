@@ -10,7 +10,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { FiLinkedin, FiGithub } from 'react-icons/fi'
 import { BsDribbble } from 'react-icons/bs'
-import { profile } from '@/data/profile'
+import { profile, buildEmail } from '@/data/profile'
 
 export default function MenuOffcanvas() {
   return (
@@ -48,15 +48,11 @@ export default function MenuOffcanvas() {
           <li>
             <span className="text-muted-foreground">Email: </span>
             <a
-              href={`mailto:${profile.email}`}
+              href={`mailto:${buildEmail()}`}
               className="underline underline-offset-4 hover:text-accent-green transition-colors"
             >
-              {profile.email}
+              {buildEmail()}
             </a>
-          </li>
-          <li>
-            <span className="text-muted-foreground">Phone: </span>
-            <span>{profile.phone}</span>
           </li>
           <li>
             <span className="text-muted-foreground">Location: </span>

@@ -5,9 +5,9 @@ import { useGSAP } from '@gsap/react'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
-import { FiLinkedin, FiGithub, FiMail, FiPhone, FiMapPin } from 'react-icons/fi'
+import { FiLinkedin, FiGithub, FiMail, FiMapPin } from 'react-icons/fi'
 import { BsDribbble } from 'react-icons/bs'
-import { profile } from '@/data/profile'
+import { profile, buildEmail } from '@/data/profile'
 
 gsap.registerPlugin(useGSAP)
 
@@ -55,15 +55,11 @@ export default function Sidebar() {
         <li className="flex items-center gap-3 text-muted-foreground">
           <FiMail size={15} className="shrink-0 text-accent-green" />
           <a
-            href={`mailto:${profile.email}`}
+            href={`mailto:${buildEmail()}`}
             className="hover:text-accent-green transition-colors truncate"
           >
-            {profile.email}
+            {buildEmail()}
           </a>
-        </li>
-        <li className="flex items-center gap-3 text-muted-foreground">
-          <FiPhone size={15} className="shrink-0 text-accent-green" />
-          <span>{profile.phone}</span>
         </li>
         <li className="flex items-center gap-3 text-muted-foreground">
           <FiMapPin size={15} className="shrink-0 text-accent-green" />
