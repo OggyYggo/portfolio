@@ -1,24 +1,28 @@
 export type Skill = {
   label: string
-  percentage: number
-  category: 'Design' | 'Development' | 'Tools'
+  description: string
+  icon: string
+  category: 'AI' | 'Design'
 }
 
 export const skills: Skill[] = [
+  // Frontend
+  { label: 'Claude',  description: 'AI coding assistant',     icon: 'claude',    category: 'AI' },
+  { label: 'Gemini',    description: 'AI coding assistant',     icon: 'gemini',         category: 'AI' },
+
+
+  // Backend
+  { label: 'Stitch',            description: 'UI/UX design tool',        icon: 'stitch',          category: 'AI' },
+  { label: 'ChatGpt',    description: 'AI coding assistant',             icon: 'chatgpt',       category: 'AI' },
+
   // Design
-  { label: 'UI Design',       percentage: 92, category: 'Design' },
-  { label: 'UX Research',     percentage: 85, category: 'Design' },
-  { label: 'Prototyping',     percentage: 88, category: 'Design' },
-  { label: 'Branding',        percentage: 80, category: 'Design' },
+  { label: 'Figma',              description: 'UI/UX design',          icon: 'figma',         category: 'Design' },
+  { label: 'Adobe Illustrator',  description: 'Vector graphics',       icon: 'illustrator',   category: 'Design' },
+  { label: 'Adobe Photoshop',    description: 'Photo editing',         icon: 'photoshop',     category: 'Design' },
+  { label: 'SketchUp',           description: '3D modeling',            icon: 'sketchup',      category: 'Design' },
 
-  // Development
-  { label: 'React / Next.js', percentage: 87, category: 'Development' },
-  { label: 'TypeScript',      percentage: 82, category: 'Development' },
-  { label: 'Tailwind CSS',    percentage: 90, category: 'Development' },
-  { label: 'Node.js',         percentage: 72, category: 'Development' },
-
-  // Tools
-  { label: 'Figma',           percentage: 95, category: 'Tools' },
-  { label: 'Framer',          percentage: 78, category: 'Tools' },
-  { label: 'Git / GitHub',    percentage: 85, category: 'Tools' },
+ 
 ]
+
+export const skillCategories = ['AI', 'Design'] as const
+export type SkillCategory = typeof skillCategories[number]

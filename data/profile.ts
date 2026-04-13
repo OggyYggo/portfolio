@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Jabez Cyrus Baliling',
   title: 'UI/UX & Graphics Designer',
-  photo: '/images/profile.jpg',
+  photo: '/images/Jabezzz.jpg',
   // Email is assembled at runtime via buildEmail() to avoid scraper harvesting
   emailParts: ['jc.baliling', 'gmail.com'],
   // Phone removed from public bundle for privacy

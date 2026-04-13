@@ -39,13 +39,7 @@ export default function Sidebar() {
           <p className="text-sm text-muted-foreground mt-0.5">{profile.title}</p>
         </div>
 
-        {/* Availability Badge */}
-        {profile.available && (
-          <Badge variant="secondary" className="flex items-center gap-1.5 text-xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-            Available for Work
-          </Badge>
-        )}
+       
       </div>
 
       <Separator />
