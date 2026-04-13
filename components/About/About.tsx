@@ -23,7 +23,7 @@ export default function About() {
         viewport={{ once: true }}
         className="flex items-center gap-3"
       >
-        <span className="text-xs font-semibold tracking-widest text-primary uppercase">
+        <span className="text-xs font-semibold tracking-widest text-accent-green uppercase">
           About Me
         </span>
         <Separator className="flex-1" />
@@ -39,7 +39,7 @@ export default function About() {
         className="text-3xl md:text-4xl font-bold leading-snug tracking-tight"
       >
         Designing experiences, <br />
-        <span className="text-primary">building products.</span>
+        <span className="text-accent-green">building products.</span>
       </motion.h2>
 
       {/* Bio */}
@@ -83,7 +83,7 @@ export default function About() {
       >
         {profile.stats.map((stat) => (
           <div key={stat.label} className="flex flex-col gap-1">
-            <span className="text-3xl font-bold text-primary">{stat.value}</span>
+            <span className="text-3xl font-bold text-accent-green">{stat.value}</span>
             <span className="text-xs text-muted-foreground uppercase tracking-wide">
               {stat.label}
             </span>

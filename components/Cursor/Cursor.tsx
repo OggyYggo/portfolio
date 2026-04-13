@@ -97,7 +97,7 @@ export default function Cursor() {
     >
       <div
         ref={circleRef}
-        className="w-5 h-5 rounded-full border-2 border-primary bg-primary/20 backdrop-blur-sm"
+        className="w-5 h-5 rounded-full border-2 border-accent-green bg-accent-green/20 backdrop-blur-sm"
       />
     </div>
   )

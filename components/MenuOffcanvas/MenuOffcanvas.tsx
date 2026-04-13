@@ -49,7 +49,7 @@ export default function MenuOffcanvas() {
             <span className="text-muted-foreground">Email: </span>
             <a
               href={`mailto:${profile.email}`}
-              className="underline underline-offset-4 hover:text-primary transition-colors"
+              className="underline underline-offset-4 hover:text-accent-green transition-colors"
             >
               {profile.email}
             </a>
@@ -70,7 +70,7 @@ export default function MenuOffcanvas() {
             href={profile.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors"
+            className="text-muted-foreground hover:text-accent-green transition-colors"
             aria-label="LinkedIn"
           >
             <FiLinkedin size={20} />
@@ -79,7 +79,7 @@ export default function MenuOffcanvas() {
             href={profile.socials.dribbble}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors"
+            className="text-muted-foreground hover:text-accent-green transition-colors"
             aria-label="Dribbble"
           >
             <BsDribbble size={20} />
@@ -88,7 +88,7 @@ export default function MenuOffcanvas() {
             href={profile.socials.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors"
+            className="text-muted-foreground hover:text-accent-green transition-colors"
             aria-label="GitHub"
           >
             <FiGithub size={20} />

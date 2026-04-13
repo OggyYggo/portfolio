@@ -38,7 +38,7 @@ export default function Experience() {
         viewport={{ once: true }}
         className="flex items-center gap-3"
       >
-        <span className="text-xs font-semibold tracking-widest text-primary uppercase">
+        <span className="text-xs font-semibold tracking-widest text-accent-green uppercase">
           Experience
         </span>
         <Separator className="flex-1" />
@@ -52,7 +52,7 @@ export default function Experience() {
         viewport={{ once: true }}
         className="text-3xl md:text-4xl font-bold tracking-tight"
       >
-        Where I&apos;ve <span className="text-primary">worked.</span>
+        Where I&apos;ve <span className="text-accent-green">worked.</span>
       </motion.h2>
 
       {/* Timeline */}
@@ -72,7 +72,7 @@ export default function Experience() {
             className="relative sm:pl-14"
           >
             {/* Timeline dot */}
-            <div className="absolute left-3.5 top-5 w-3 h-3 rounded-full bg-primary ring-4 ring-background hidden sm:block" />
+            <div className="absolute left-3.5 top-5 w-3 h-3 rounded-full bg-accent-green ring-4 ring-background hidden sm:block" />
 
             <Card className="hover:shadow-md transition-shadow duration-300">
               <CardHeader className="pb-3">
@@ -107,7 +107,7 @@ export default function Experience() {
                       key={j}
                       className="flex items-start gap-2 text-sm text-muted-foreground"
                     >
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-green shrink-0" />
                       {point}
                     </li>
                   ))}

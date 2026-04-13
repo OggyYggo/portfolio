@@ -75,7 +75,7 @@ export default function Contact() {
         viewport={{ once: true }}
         className="flex items-center gap-3"
       >
-        <span className="text-xs font-semibold tracking-widest text-primary uppercase">
+        <span className="text-xs font-semibold tracking-widest text-accent-green uppercase">
           Contact
         </span>
         <Separator className="flex-1" />
@@ -91,7 +91,7 @@ export default function Contact() {
         className="flex flex-col gap-2"
       >
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-          Let&apos;s <span className="text-primary">work together.</span>
+          Let&apos;s <span className="text-accent-green">work together.</span>
         </h2>
         <p className="text-muted-foreground text-base max-w-lg">
           Have a project in mind or just want to say hi? Fill out the form below
@@ -112,8 +112,8 @@ export default function Contact() {
         >
           {submitted ? (
             <div className="flex flex-col items-center justify-center gap-4 py-16 text-center border rounded-2xl">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <FiSend size={20} className="text-primary" />
+              <div className="w-12 h-12 rounded-full bg-accent-green/10 flex items-center justify-center">
+                <FiSend size={20} className="text-accent-green" />
               </div>
               <h3 className="font-bold text-lg">Message sent!</h3>
               <p className="text-sm text-muted-foreground max-w-xs">
@@ -222,9 +222,9 @@ export default function Contact() {
               </p>
               <a
                 href={`mailto:${profile.email}`}
-                className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-2"
+                className="text-sm font-medium hover:text-accent-green transition-colors flex items-center gap-2"
               >
-                <FiMail size={14} className="text-primary shrink-0" />
+                <FiMail size={14} className="text-accent-green shrink-0" />
                 {profile.email}
               </a>
             </CardContent>
@@ -241,27 +241,27 @@ export default function Contact() {
                   href={profile.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-2"
+                  className="text-sm font-medium hover:text-accent-green transition-colors flex items-center gap-2"
                 >
-                  <FiLinkedin size={14} className="text-primary" />
+                  <FiLinkedin size={14} className="text-accent-green" />
                   LinkedIn
                 </a>
                 <a
                   href={profile.socials.dribbble}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-2"
+                  className="text-sm font-medium hover:text-accent-green transition-colors flex items-center gap-2"
                 >
-                  <BsDribbble size={14} className="text-primary" />
+                  <BsDribbble size={14} className="text-accent-green" />
                   Dribbble
                 </a>
                 <a
                   href={profile.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-2"
+                  className="text-sm font-medium hover:text-accent-green transition-colors flex items-center gap-2"
                 >
-                  <FiGithub size={14} className="text-primary" />
+                  <FiGithub size={14} className="text-accent-green" />
                   GitHub
                 </a>
               </div>
@@ -269,11 +269,11 @@ export default function Contact() {
           </Card>
 
           {/* Availability */}
-          <Card className="bg-primary/5 border-primary/20">
+          <Card className="bg-accent-green/5 border-accent-green/20">
             <CardContent className="p-4 flex flex-col gap-1">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <p className="text-xs font-semibold text-primary">
+                <p className="text-xs font-semibold text-accent-green">
                   Available for work
                 </p>
               </div>

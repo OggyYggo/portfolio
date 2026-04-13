@@ -57,7 +57,7 @@ export default function Skills() {
         viewport={{ once: true }}
         className="flex items-center gap-3"
       >
-        <span className="text-xs font-semibold tracking-widest text-primary uppercase">
+        <span className="text-xs font-semibold tracking-widest text-accent-green uppercase">
           Skills
         </span>
         <Separator className="flex-1" />
@@ -72,7 +72,7 @@ export default function Skills() {
         viewport={{ once: true }}
         className="text-3xl md:text-4xl font-bold tracking-tight"
       >
-        What I <span className="text-primary">work with.</span>
+        What I <span className="text-accent-green">work with.</span>
       </motion.h2>
 
       {/* Skills by Category */}
@@ -107,7 +107,7 @@ export default function Skills() {
                     {/* Custom animated bar using GSAP */}
                     <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
                       <div
-                        className="skill-bar h-full bg-primary rounded-full"
+                        className="skill-bar h-full bg-accent-green rounded-full"
                         data-value={skill.percentage}
                         style={{ width: '0%' }}
                       />

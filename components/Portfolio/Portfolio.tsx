@@ -40,7 +40,7 @@ export default function Portfolio() {
         viewport={{ once: true }}
         className="flex items-center gap-3"
       >
-        <span className="text-xs font-semibold tracking-widest text-primary uppercase">
+        <span className="text-xs font-semibold tracking-widest text-accent-green uppercase">
           Portfolio
         </span>
         <Separator className="flex-1" />
@@ -55,7 +55,7 @@ export default function Portfolio() {
         viewport={{ once: true }}
         className="text-3xl md:text-4xl font-bold tracking-tight"
       >
-        Selected <span className="text-primary">work.</span>
+        Selected <span className="text-accent-green">work.</span>
       </motion.h2>
 
       {/* Category Filters */}
@@ -75,7 +75,7 @@ export default function Portfolio() {
           >
             <Badge
               variant={activeCategory === cat ? 'default' : 'outline'}
-              className="cursor-pointer px-4 py-1.5 text-xs transition-all hover:bg-primary hover:text-primary-foreground"
+              className="cursor-pointer px-4 py-1.5 text-xs transition-all hover:bg-accent-green hover:text-primary-foreground"
             >
               {cat}
             </Badge>
@@ -158,7 +158,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+                className="flex items-center gap-2 text-sm font-semibold text-accent-green hover:underline"
               >
                 View Project <FiExternalLink size={14} />
               </Link>

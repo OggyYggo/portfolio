@@ -26,7 +26,7 @@ export default function Sidebar() {
 
       {/* Profile Photo */}
       <div className="flex flex-col items-center gap-3">
-        <Avatar className="w-32 h-32 ring-4 ring-primary/10">
+        <Avatar className="w-32 h-32 ring-4 ring-accent-green/10">
           <AvatarImage src={profile.photo} alt={profile.name} />
           <AvatarFallback className="text-3xl font-bold">
             {profile.name.charAt(0)}
@@ -53,20 +53,20 @@ export default function Sidebar() {
       {/* Contact Info */}
       <ul className="space-y-3 text-sm">
         <li className="flex items-center gap-3 text-muted-foreground">
-          <FiMail size={15} className="shrink-0 text-primary" />
+          <FiMail size={15} className="shrink-0 text-accent-green" />
           <a
             href={`mailto:${profile.email}`}
-            className="hover:text-primary transition-colors truncate"
+            className="hover:text-accent-green transition-colors truncate"
           >
             {profile.email}
           </a>
         </li>
         <li className="flex items-center gap-3 text-muted-foreground">
-          <FiPhone size={15} className="shrink-0 text-primary" />
+          <FiPhone size={15} className="shrink-0 text-accent-green" />
           <span>{profile.phone}</span>
         </li>
         <li className="flex items-center gap-3 text-muted-foreground">
-          <FiMapPin size={15} className="shrink-0 text-primary" />
+          <FiMapPin size={15} className="shrink-0 text-accent-green" />
           <span>{profile.location}</span>
         </li>
       </ul>
@@ -80,7 +80,7 @@ export default function Sidebar() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
-          className="text-muted-foreground hover:text-primary transition-colors hover:scale-110 duration-200"
+          className="text-muted-foreground hover:text-accent-green transition-colors hover:scale-110 duration-200"
         >
           <FiLinkedin size={20} />
         </a>
@@ -89,7 +89,7 @@ export default function Sidebar() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Dribbble"
-          className="text-muted-foreground hover:text-primary transition-colors hover:scale-110 duration-200"
+          className="text-muted-foreground hover:text-accent-green transition-colors hover:scale-110 duration-200"
         >
           <BsDribbble size={20} />
         </a>
@@ -98,7 +98,7 @@ export default function Sidebar() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
-          className="text-muted-foreground hover:text-primary transition-colors hover:scale-110 duration-200"
+          className="text-muted-foreground hover:text-accent-green transition-colors hover:scale-110 duration-200"
         >
           <FiGithub size={20} />
         </a>
@@ -110,7 +110,7 @@ export default function Sidebar() {
       <a
         href="/cv.pdf"
         download
-        className="w-full text-center text-sm font-medium py-2 px-4 rounded-lg border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+        className="w-full text-center text-sm font-medium py-2 px-4 rounded-lg border border-accent-green text-accent-green hover:bg-accent-green hover:text-primary-foreground transition-colors duration-200"
       >
         Download CV
       </a>
