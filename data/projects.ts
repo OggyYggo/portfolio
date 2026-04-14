@@ -2,7 +2,7 @@ export type Project = {
   slug: string
   title: string
   tagline: string
-  category: 'UI/UX Design' | 'Development' | 'Branding' | 'Motion'
+  category: 'UI/UX Design' | 'Development' | 'Branding' | 'Motion' | 'UI/UX Design & UX Research'
   client: string
   timeline: string
   image: string
@@ -58,22 +58,22 @@ export const projects: Project[] = [
   },
   {
     slug: 'ecommerce-storefront',
-    title: 'E-commerce Storefront',
+    title: 'Pedi Jobs',
     tagline:
       'A high-performance headless storefront that merges beautiful design with seamless shopping functionality.',
-    category: 'Development',
-    client: 'Internal Project',
-    timeline: '10 Weeks',
-    image: '/images/projects/project-2.jpg',
+    category: 'UI/UX Design & UX Research',
+    client: 'Internship Project',
+    timeline: '3 Months',
+    image: '/images/Pedi Jobs.jpg',
     link: 'https://yourproject.com',
-    description: 'Next.js storefront with headless Shopify integration.',
-    year: '2024',
-    featured: true,
+    description: 'Designed a app for Pedi Jobs.',
+    year: '2026',
+  
     gallery: [
-      { src: '/images/projects/ecommerce-storefront/gallery-1.jpg', caption: 'Product Listing' },
-      { src: '/images/projects/ecommerce-storefront/gallery-2.jpg', caption: 'Cart & Checkout' },
-      { src: '/images/projects/ecommerce-storefront/gallery-3.jpg', caption: 'Product Detail Page' },
-      { src: '/images/projects/ecommerce-storefront/gallery-4.jpg', caption: 'Mobile Experience' },
+      { src: '/images/Job Listingss.jpg', caption: 'Job Listings' },
+      { src: '/images/Job Details.jpg', caption: 'Job Details' },
+      { src: '/images/projects/Application Form.jpg', caption: 'Application Form' },
+      { src: '/images/projects/Mobile Experience.jpg', caption: 'Mobile Experience' },
     ],
     strategy: {
       heading: 'DESIGN STRATEGY',
@@ -83,7 +83,7 @@ export const projects: Project[] = [
         'Integration with Shopify APIs ensures real-time inventory, seamless payments, and a backend that scales with the business.',
       ],
     },
-    parallaxImage: '/images/projects/ecommerce-storefront/parallax.jpg',
+    parallaxImage: '/images/projects/Pedi Jobs.jpg',
     summary: [
       'A fully headless e-commerce experience powered by Next.js and Shopify, designed for speed and conversion.',
       'The storefront features dynamic product pages, real-time cart updates, and a frictionless checkout flow.',

@@ -22,7 +22,7 @@ export default function Sidebar() {
   })
 
   return (
-    <aside className="resume-sidebar flex flex-col gap-6 p-6 rounded-2xl border bg-card shadow-sm h-fit sticky top-24">
+    <aside className="resume-sidebar flex flex-col gap-6 p-6 rounded-2xl border bg-card shadow-sm h-fit lg:sticky lg:top-24">
 
       {/* Profile Photo */}
       <div className="flex flex-col items-center gap-3">
