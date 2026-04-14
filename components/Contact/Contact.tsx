@@ -304,13 +304,13 @@ export default function Contact() {
                   LinkedIn
                 </a>
                 <a
-                  href={profile.socials.dribbble}
+                  href={profile.socials.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm font-medium hover:text-accent-green transition-colors flex items-center gap-2"
                 >
                   <BsDribbble size={14} className="text-accent-green" />
-                  Dribbble
+                  Facebook
                 </a>
                 <a
                   href={profile.socials.github}

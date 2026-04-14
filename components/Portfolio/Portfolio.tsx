@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
-import { FiExternalLink } from 'react-icons/fi'
+import { FiArrowRight } from 'react-icons/fi'
 import { GlowingEffect } from '@/components/ui/glowing-effect'
 import { projects, categories } from '@/data/projects'
 import type { Category } from '@/data/projects'
@@ -155,12 +155,10 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
               className="absolute inset-0 bg-background/90 flex flex-col items-center justify-center gap-3 opacity-0"
             >
               <Link
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`/projects/${project.slug}`}
                 className="flex items-center gap-2 text-sm font-semibold text-accent-green hover:underline"
               >
-                View Project <FiExternalLink size={14} />
+                View Project <FiArrowRight size={14} />
               </Link>
               <p className="text-xs text-muted-foreground text-center px-6">
                 {project.description}

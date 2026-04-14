@@ -27,9 +27,9 @@ export const profile = {
   ],
 
   socials: {
-    linkedin: 'https://linkedin.com/in/jabez-cyrus-baliling-187176237',
-    dribbble: 'https://dribbble.com/jabez',
-    github: 'https://github.com/jabez',
+    linkedin: 'https://www.linkedin.com/in/jc-baliling/',
+    facebook: 'https://www.facebook.com/Mr.ZEBAJ',
+    github: 'https://github.com/OggyYggo',
   },
 }
 

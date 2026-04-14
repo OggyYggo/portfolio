@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Urbanist } from "next/font/google";
 import "./globals.css";
+import Cursor from "@/components/Cursor/Cursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,7 +19,7 @@ const urbanist = Urbanist({
 });
 
 export const metadata: Metadata = {
-  title: "Kivora — Portfolio",
+  title: "JC_Baliling Portfolio",
   description: "A modern portfolio built with Next.js, Tailwind CSS, and shadcn/ui",
 };
 
@@ -32,7 +33,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${urbanist.variable} dark h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col cursor-none">{children}</body>
+      <body className="min-h-full flex flex-col cursor-none">
+        <Cursor />
+        {children}
+      </body>
     </html>
   );
 }

@@ -6,7 +6,7 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { FiLinkedin, FiGithub, FiMail, FiMapPin } from 'react-icons/fi'
-import { BsDribbble } from 'react-icons/bs'
+import { BsDribbble, BsFacebook } from 'react-icons/bs'
 import { profile, buildEmail } from '@/data/profile'
 
 gsap.registerPlugin(useGSAP)
@@ -75,13 +75,13 @@ export default function Sidebar() {
           <FiLinkedin size={20} />
         </a>
         <a
-          href={profile.socials.dribbble}
+          href={profile.socials.facebook}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Dribbble"
+          aria-label="Facebook"
           className="text-muted-foreground hover:text-accent-green transition-colors hover:scale-110 duration-200"
         >
-          <BsDribbble size={20} />
+          <BsFacebook size={20} />
         </a>
         <a
           href={profile.socials.github}

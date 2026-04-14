@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
 import { FiLinkedin, FiGithub } from 'react-icons/fi'
-import { BsDribbble } from 'react-icons/bs'
+import { BsDribbble, BsFacebook } from 'react-icons/bs'
 import { profile, buildEmail } from '@/data/profile'
 
 export default function MenuOffcanvas() {
@@ -72,13 +72,13 @@ export default function MenuOffcanvas() {
             <FiLinkedin size={20} />
           </a>
           <a
-            href={profile.socials.dribbble}
+            href={profile.socials.facebook}
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-accent-green transition-colors"
-            aria-label="Dribbble"
+            aria-label="Facebook"
           >
-            <BsDribbble size={20} />
+            <BsFacebook size={20} />
           </a>
           <a
             href={profile.socials.github}
