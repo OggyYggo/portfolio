@@ -1,4 +1,5 @@
 export type Project = {
+  // ── Core ──────────────────────────────────────────
   slug: string
   title: string
   tagline: string
@@ -20,6 +21,95 @@ export type Project = {
   }
   parallaxImage?: string
   summary?: string[]
+
+  // ── Section 1: Hook ───────────────────────────────
+  heroImage?: string
+  role?: string
+  problemStatement?: string
+
+  // ── Section 2: Overview ───────────────────────────
+  overview?: {
+    client: string
+    timeline: string
+    role: string
+    tools: string[]
+    link?: string
+  }
+
+  // ── Section 3: Problem ────────────────────────────
+  problem?: {
+    heading: string
+    body: string[]
+    painPoints: string[]
+  }
+
+  // ── Section 4: Research ───────────────────────────
+  research?: {
+    heading: string
+    methods: {
+      title: string
+      description: string
+      image?: string
+    }[]
+    insights: string[]
+  }
+
+  // ── Section 5: Early Thinking ─────────────────────
+  earlyThinking?: {
+    heading: string
+    description: string
+    images: {
+      src: string
+      caption: string
+    }[]
+  }
+
+  // ── Section 6: Design Decisions ───────────────────
+  decisions?: {
+    heading: string
+    items: {
+      decision: string
+      reasoning: string
+      image?: string
+    }[]
+  }
+
+  // ── Section 7: Final Designs ──────────────────────
+  finalDesigns?: {
+    heading: string
+    description: string
+    images: {
+      src: string
+      caption: string
+    }[]
+    figmaEmbed?: string
+  }
+
+  // ── Section 8: Before / After ─────────────────────
+  beforeAfter?: {
+    heading: string
+    description: string
+    before: string
+    after: string
+  }
+
+  // ── Section 9: Results ────────────────────────────
+  results?: {
+    heading: string
+    description: string
+    metrics: {
+      value: string
+      label: string
+    }[]
+    qualitative?: string[]
+  }
+
+  // ── Section 10: Reflection ────────────────────────
+  reflection?: {
+    heading: string
+    body: string[]
+    wouldDoDifferently: string[]
+  }
 }
 
 export const projects: Project[] = [
@@ -89,6 +179,140 @@ export const projects: Project[] = [
       'The storefront features dynamic product pages, real-time cart updates, and a frictionless checkout flow.',
       'Optimized for SEO and performance, delivering sub-second page loads across all devices.',
     ],
+
+    // ── Case Study Fields ─────────────────────────────
+    heroImage: '/images/Pedi Jobs.jpg',
+    role: 'UI/UX Designer & UX Researcher',
+    problemStatement:
+      'Job seekers in the pedicab industry had no centralized platform to find work — relying on word-of-mouth and outdated bulletin boards. We designed a mobile-first app to bridge the gap.',
+
+    overview: {
+      client: 'Internship Project',
+      timeline: '3 Months',
+      role: 'UI/UX Designer & UX Researcher',
+      tools: ['Figma', 'FigJam', 'Google Forms', 'Maze'],
+      link: 'https://yourproject.com',
+    },
+
+    problem: {
+      heading: 'The Problem',
+      body: [
+        'Pedicab drivers and operators had no reliable way to post or find job openings. The existing process was entirely offline — handwritten notices, word-of-mouth referrals, and chance encounters at terminals.',
+        'This created a massive inefficiency: qualified drivers couldn\'t find work, and operators struggled to fill positions quickly. Both sides wasted time and missed opportunities.',
+      ],
+      painPoints: [
+        'No centralized job board for the pedicab industry',
+        'Application process was entirely manual and in-person',
+        'Drivers had no way to showcase experience or credentials',
+        'Operators couldn\'t filter or compare applicants effectively',
+        'Mobile access was essential — most users only had smartphones',
+      ],
+    },
+
+    research: {
+      heading: 'Research & Discovery',
+      methods: [
+        {
+          title: 'User Interviews',
+          description:
+            'Conducted 10 interviews with pedicab drivers and 5 with operators to understand daily workflows, frustrations, and technology comfort levels.',
+        },
+        {
+          title: 'Survey Analysis',
+          description:
+            'Distributed a Google Forms survey to 50+ respondents in the pedicab community, validating pain points and prioritizing features.',
+        },
+        {
+          title: 'Competitive Analysis',
+          description:
+            'Analyzed 4 general-purpose job platforms (JobStreet, Indeed, LinkedIn, Jobilize) to identify UX patterns that could be adapted for a niche audience.',
+        },
+        {
+          title: 'Persona Development',
+          description:
+            'Created 2 primary personas — a job-seeking driver and a fleet operator — to anchor all design decisions in real user needs.',
+        },
+      ],
+      insights: [
+        'Most users access the internet only through smartphones — desktop is not viable',
+        'Trust and legitimacy are top concerns — users need to verify operators before applying',
+        'Simplicity is critical — many users have limited digital literacy',
+        'Instant notifications for new jobs would be the #1 valued feature',
+      ],
+    },
+
+    earlyThinking: {
+      heading: 'Early Thinking',
+      description:
+        'We started with paper sketches and FigJam flows before moving to Figma. This helped us focus on information architecture and user flows without getting distracted by visual details.',
+      images: [
+        { src: '/images/Job Listingss.jpg', caption: 'Job listings — early wireframe exploration' },
+        { src: '/images/Job Details.jpg', caption: 'Job detail view — information hierarchy' },
+      ],
+    },
+
+    decisions: {
+      heading: 'Design Decisions',
+      items: [
+        {
+          decision: 'Mobile-first over responsive web',
+          reasoning:
+            'Our research showed 95%+ of target users access the internet exclusively via smartphones. We designed native mobile patterns first, ensuring the core experience was optimized for small screens and touch interactions.',
+        },
+        {
+          decision: 'One-tap apply over multi-step forms',
+          reasoning:
+            'Given the low digital literacy of many users, we reduced the application flow to a single tap after initial profile setup. This dramatically lowered the barrier to applying for jobs.',
+        },
+        {
+          decision: 'Visual job cards over text-heavy lists',
+          reasoning:
+            'Testing showed users scanned listings faster and with better comprehension when jobs were presented as visual cards with key details upfront, rather than dense text lists.',
+        },
+      ],
+    },
+
+    finalDesigns: {
+      heading: 'Final Designs',
+      description:
+        'After 2 rounds of usability testing and iteration, here are the final screens. Every component was built in Figma with auto-layout for responsive behavior.',
+      images: [
+        { src: '/images/Job Listingss.jpg', caption: 'Job Listings' },
+        { src: '/images/Job Details.jpg', caption: 'Job Details' },
+        { src: '/images/projects/Application Form.jpg', caption: 'Application Form' },
+        { src: '/images/projects/Mobile Experience.jpg', caption: 'Mobile Experience' },
+      ],
+    },
+
+    results: {
+      heading: 'Results',
+      description:
+        'Measured through usability testing sessions with 8 participants using Maze.',
+      metrics: [
+        { value: '92%', label: 'Task completion rate' },
+        { value: '< 30s', label: 'Average time to apply' },
+        { value: '4.6/5', label: 'User satisfaction score' },
+        { value: '88%', label: 'Would recommend to peers' },
+      ],
+      qualitative: [
+        '"This is so much easier than asking around at the terminal." — Driver, 3 years experience',
+        '"I can finally see who\'s applying and compare them side by side." — Fleet operator',
+        'Users consistently praised the simplicity and clarity of the job cards',
+      ],
+    },
+
+    reflection: {
+      heading: 'Reflection',
+      body: [
+        'This project taught me the importance of designing for users with varying levels of digital literacy. What feels intuitive to a designer can be confusing for someone who primarily uses their phone for calls and messaging.',
+        'The research phase was the most valuable part of the process — every major design decision traced back to a specific user insight or pain point.',
+      ],
+      wouldDoDifferently: [
+        'Conduct field testing earlier — observing users in their actual environment (terminals, streets) would have surfaced issues we missed in remote testing',
+        'Build a simple clickable prototype for the initial interviews instead of showing static screens',
+        'Include accessibility testing for users with vision impairments, given outdoor usage conditions',
+      ],
+    },
   },
   {
     slug: 'brand-identity-system',

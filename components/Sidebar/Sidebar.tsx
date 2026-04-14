@@ -98,7 +98,7 @@ export default function Sidebar() {
 
       {/* Download CV Button */}
       <a
-        href="/cv.pdf"
+        href="/JC_Baliling.pdf"
         download
         className="w-full text-center text-sm font-medium py-2 px-4 rounded-lg border border-accent-green text-accent-green hover:bg-accent-green hover:text-primary-foreground transition-colors duration-200"
       >
