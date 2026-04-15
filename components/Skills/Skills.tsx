@@ -14,7 +14,7 @@ import {
   SiPostman,
   SiSketchup,
 } from 'react-icons/si'
-import { TbApi, TbVector, TbNeedleThread, TbPhoto } from 'react-icons/tb'
+import { TbApi, TbNeedleThread } from 'react-icons/tb'
 
 // ─── Icon map ────────────────────────────────────────────────────────────────
 
@@ -26,8 +26,8 @@ const iconMap: Record<string, ReactNode> = {
   mongodb:      <SiMongodb      size={28} className="text-green-400" />,
   api:          <TbApi          size={28} className="text-muted-foreground" />,
   figma:        <SiFigma        size={28} className="text-pink-400" />,
-  illustrator:  <TbVector           size={28} className="text-orange-400" />,
-  photoshop:    <TbPhoto            size={28} className="text-blue-500" />,
+  illustrator:  <img src="/Icons/illustrator.svg" alt="Illustrator" width={28} height={28} />,
+  photoshop:    <img src="/Icons/Photoshop.svg" alt="Photoshop" width={28} height={28} />,
   sketchup:     <SiSketchup         size={28} className="text-red-400" />,
   github:       <SiGithub       size={28} className="text-foreground" />,
   postman:      <SiPostman      size={28} className="text-orange-500" />,

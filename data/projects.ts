@@ -46,12 +46,27 @@ export type Project = {
   // ── Section 4: Research ───────────────────────────
   research?: {
     heading: string
+    intro: string
     methods: {
       title: string
       description: string
+      stat?: string
       image?: string
+      proofImage?: {
+        src: string
+        alt: string
+        caption: string
+      }
     }[]
-    insights: string[]
+    insights: {
+      text: string
+      source: string
+    }[]
+    artifacts?: {
+      title: string
+      image: string
+      description: string
+    }[]
   }
 
   // ── Section 5: Early Thinking ─────────────────────
@@ -147,7 +162,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: 'ecommerce-storefront',
+    slug: 'pedi-jobs',
     title: 'Pedi Jobs',
     tagline:
       'A high-performance headless storefront that merges beautiful design with seamless shopping functionality.',
@@ -211,33 +226,82 @@ export const projects: Project[] = [
 
     research: {
       heading: 'Research & Discovery',
+      intro: 'Before designing a single screen, we spent the first month deeply embedded in the pedicab community — interviewing drivers and operators, surveying 50+ users, and studying existing job platforms. Every design decision traces back to what we learned here.',
       methods: [
         {
           title: 'User Interviews',
           description:
             'Conducted 10 interviews with pedicab drivers and 5 with operators to understand daily workflows, frustrations, and technology comfort levels.',
+          stat: '15 participants · 30 min each',
+          proofImage: {
+            src: '/images/projects/pedi-jobs/research-interviews.jpg',
+            alt: 'User interview session with pedicab drivers',
+            caption: 'Field interview with pedicab drivers — understanding daily workflows and frustrations firsthand',
+          },
         },
         {
           title: 'Survey Analysis',
           description:
-            'Distributed a Google Forms survey to 50+ respondents in the pedicab community, validating pain points and prioritizing features.',
+            'This graph shows the distribution of survey responses across different age groups and experience levels.',
+          stat: '20 respondents',
+          proofImage: {
+            src: '/research & discovery/Survey Analysis.jpg',
+            alt: 'Google Forms survey results',
+            caption: 'Survey results — validating pain points and feature priorities across 50+ respondents',
+          },
         },
         {
           title: 'Competitive Analysis',
           description:
-            'Analyzed 4 general-purpose job platforms (JobStreet, Indeed, LinkedIn, Jobilize) to identify UX patterns that could be adapted for a niche audience.',
+            'Analyzed 5 general-purpose job platforms (PhilJobNet, Jobstreet, Boss Job, Facebook Jobs) to identify UX patterns that could be adapted for a niche audience.',
+          stat: '5 platforms · 10 dimensions',
+          proofImage: {
+            src: '/research & discovery/Competitive Analysis.jpg',
+            alt: 'Competitor analysis board in Google Sheets',
+            caption: 'Google Sheets competitor audit — side-by-side comparison of 5 job platforms across 10 UX dimensions',
+          },
         },
         {
           title: 'Persona Development',
           description:
             'Created 2 primary personas — a job-seeking driver and a fleet operator — to anchor all design decisions in real user needs.',
+          stat: '2 personas',
+          proofImage: {
+            src: '/images/projects/pedi-jobs/research-personas.jpg',
+            alt: 'User persona documents in Figma',
+            caption: 'Figma persona documents — driver and operator archetypes grounded in interview data',
+          },
         },
       ],
       insights: [
-        'Most users access the internet only through smartphones — desktop is not viable',
-        'Trust and legitimacy are top concerns — users need to verify operators before applying',
-        'Simplicity is critical — many users have limited digital literacy',
-        'Instant notifications for new jobs would be the #1 valued feature',
+        {
+          text: 'Most users access the internet only through smartphones — desktop is not viable.',
+          source: 'User interviews + survey data',
+        },
+        {
+          text: 'Trust and legitimacy are top concerns — users need to verify operators before applying.',
+          source: 'User interviews',
+        },
+        {
+          text: 'Simplicity is critical — many users have limited digital literacy.',
+          source: 'Field observations',
+        },
+        {
+          text: 'Instant notifications for new jobs would be the #1 valued feature.',
+          source: 'Survey data',
+        },
+      ],
+      artifacts: [
+        {
+          title: 'User Persona — The Driver',
+          image: '/images/projects/pedi-jobs/persona-driver.jpg',
+          description: 'Juan, 42 — Experienced pedicab driver looking for stable work. Smartphone-only user with limited digital literacy.',
+        },
+        {
+          title: 'User Persona — The Operator',
+          image: '/images/projects/pedi-jobs/persona-operator.jpg',
+          description: 'Maria, 35 — Fleet operator managing 12 pedicabs. Needs to quickly post openings and compare applicants.',
+        },
       ],
     },
 
