@@ -1,50 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+<!-- Animated Typing Header -->
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=4000&pause=1000&color=6C63FF&center=true&vCenter=true&multiline=true&repeat=true&width=700&height=100&lines=%F0%9F%8E%A8+Jabez+Cyrus+Baliling;UI%2FUX+%26+Graphics+Designer+%7C+Philippines" alt="Typing SVG" /></a>
 
-First, run the development server:
+<!-- Wave Animation -->
+<img src="https://raw.githubusercontent.com/BrunnerLivio/brunnerlivio/master/images/marquee.svg" alt="marquee" />
+
+<!-- Shields -->
+[![Portfolio](https://img.shields.io/badge/Portfolio-6C63FF?style=for-the-badge&logo=google-chrome&logoColor=white)](http://localhost:3000)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jc-baliling/)
+[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/Mr.ZEBAJ)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/OggyYggo)
+
+</div>
+
+---
+
+## 👋 About Me
+
+> Creative and detail-oriented Graphic and Web Designer with experience in creating visually compelling designs and user-friendly visuals. Skilled in transforming ideas into clean, modern visuals that align with brand identity and business goals. Passionate about design, usability, and continuous learning.
+
+<img align="right" src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" alt="Coder GIF" width="300">
+
+- 🎨 **UI/UX & Graphics Designer**
+- 📍 **Based in the Philippines**
+- 🟢 **Currently available for work**
+- 🏆 **12+ Awards Won**
+- 📁 **120+ Projects Completed**
+- 😊 **40+ Happy Clients**
+- 💼 **5+ Years Experience**
+
+<br clear="right"/>
+
+---
+
+## 🛠️ Tech Stack & Tools
+
+<div align="center">
+
+### 🤖 AI Tools
+![ChatGPT](https://img.shields.io/badge/ChatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
+![Google Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)
+![Claude](https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white)
+
+### 🎨 Design Tools
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
+![Adobe Illustrator](https://img.shields.io/badge/Illustrator-FF9A00?style=for-the-badge&logo=adobeillustrator&logoColor=white)
+![Adobe Photoshop](https://img.shields.io/badge/Photoshop-31A8FF?style=for-the-badge&logo=adobephotoshop&logoColor=white)
+![SketchUp](https://img.shields.io/badge/SketchUp-005F9E?style=for-the-badge&logo=sketchup&logoColor=white)
+
+### 💻 Web Technologies
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
+![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=black)
+
+</div>
+
+---
+
+## 🚀 Services
+
+<div align="center">
+
+| 🎯 Service | Description |
+|:---:|:---|
+| 🖌️ **UI Design** | Crafting beautiful, intuitive interfaces |
+| 🔍 **UX Research** | User-centered research & testing |
+| 🎨 **Graphics Design** | Eye-catching visuals & illustrations |
+| ✨ **Branding** | Complete brand identity systems |
+| 📐 **Prototyping** | Interactive prototypes & wireframes |
+
+</div>
+
+---
+
+## ⚡ Quick Start
 
 ```bash
+# Clone the repository
+git clone https://github.com/OggyYggo/portfolio.git
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> Open [http://localhost:3000](http://localhost:3000) to view the portfolio 🚀
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📬 Contact Form Setup
 
-## Contact Form
+The contact form uses **Resend** for email delivery via `app/api/send/route.ts`.
 
-The portfolio contact form posts to `app/api/send/route.ts` and uses Resend.
+| Variable | Description |
+|:---|:---|
+| `RESEND_API_KEY` | Your Resend API key |
+| `CONTACT_TO_EMAIL` | Destination inbox |
+| `CONTACT_FROM_EMAIL` | Sender address (verified domain) |
 
-Required environment variables:
+---
 
-```bash
-RESEND_API_KEY=your_resend_api_key
-CONTACT_TO_EMAIL=your-inbox@example.com
-CONTACT_FROM_EMAIL="Portfolio <hello@yourdomain.com>"
-```
+## 📊 GitHub Stats
 
-For real delivery to a non-test inbox, verify your domain in Resend and use that domain in `CONTACT_FROM_EMAIL`.
+<div align="center">
 
-## Learn More
+<img src="https://github-readme-stats.vercel.app/api?username=OggyYggo&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=6C63FF&icon_color=6C63FF&text_color=C9D1D9" alt="GitHub Stats" height="170"/>
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=OggyYggo&theme=tokyonight&hide_border=true&background=0D1117&ring=6C63FF&fire=6C63FF&currStreakLabel=6C63FF" alt="GitHub Streak" height="170"/>
 
-To learn more about Next.js, take a look at the following resources:
+</div>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+<div align="center">
 
-## Deploy on Vercel
+<!-- Animated Footer -->
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&duration=3000&pause=1000&color=6C63FF&center=true&vCenter=true&repeat=true&width=500&lines=Thanks+for+visiting!+%F0%9F%91%8B;Let's+create+something+amazing+together!+%E2%9C%A8;Open+to+collaborations+%F0%9F%A4%9D" alt="Footer Typing SVG" /></a>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<br/>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=6C63FF&height=100&section=footer" width="100%"/>
+
+</div>
