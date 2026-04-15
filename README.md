@@ -20,6 +20,20 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Contact Form
+
+The portfolio contact form posts to `app/api/send/route.ts` and uses Resend.
+
+Required environment variables:
+
+```bash
+RESEND_API_KEY=your_resend_api_key
+CONTACT_TO_EMAIL=your-inbox@example.com
+CONTACT_FROM_EMAIL="Portfolio <hello@yourdomain.com>"
+```
+
+For real delivery to a non-test inbox, verify your domain in Resend and use that domain in `CONTACT_FROM_EMAIL`.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

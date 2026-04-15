@@ -79,6 +79,7 @@ const fadeUp = {
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const {
     register,
@@ -88,36 +89,41 @@ export default function Contact() {
   } = useForm<FormData>({ resolver: zodResolver(schema) })
 
   const onSubmit = async (data: FormData) => {
+    setSubmitError(null)
     setLoading(true)
 
-    // Client-side rate limiting
     if (isRateLimited()) {
-      alert('Too many submissions. Please wait a minute before trying again.')
+      setSubmitError('Too many submissions. Please wait a minute before trying again.')
       setLoading(false)
       return
     }
 
-    // Sanitize inputs before any future backend forwarding
     const sanitized = sanitizeInput(data)
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(sanitized),
+      })
 
-    // Replace this with your preferred email service:
-    // - Resend (recommended): https://resend.com
-    // - EmailJS: https://emailjs.com
-    // - Formspree: https://formspree.io
-    //
-    // IMPORTANT: When wiring up a backend, also:
-    //  1. Re-validate with Zod on the server (never trust client)
-    //  2. Add server-side rate limiting
-    //  3. Add CSRF protection if using cookie-based sessions
-    console.log('Form submitted (sanitized):', sanitized)
+      const result = (await response.json()) as { error?: string }
 
-    // Simulate API call
-    await new Promise((res) => setTimeout(res, 1200))
+      if (!response.ok) {
+        throw new Error(result.error ?? 'Failed to send your message.')
+      }
 
-    recordSubmission()
-    setLoading(false)
-    setSubmitted(true)
-    reset()
+      recordSubmission()
+      setSubmitted(true)
+      reset()
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error ? error.message : 'Failed to send your message.',
+      )
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -186,8 +192,12 @@ export default function Contact() {
             </div>
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+              {submitError ? (
+                <div className="rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">
+                  {submitError}
+                </div>
+              ) : null}
 
-              {/* Name + Email row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
                   <Label htmlFor="name">Name</Label>

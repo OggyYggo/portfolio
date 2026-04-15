@@ -291,18 +291,6 @@ export const projects: Project[] = [
           source: 'Survey data',
         },
       ],
-      artifacts: [
-        {
-          title: 'User Persona — The Driver',
-          image: '/images/projects/pedi-jobs/persona-driver.jpg',
-          description: 'Juan, 42 — Experienced pedicab driver looking for stable work. Smartphone-only user with limited digital literacy.',
-        },
-        {
-          title: 'User Persona — The Operator',
-          image: '/images/projects/pedi-jobs/persona-operator.jpg',
-          description: 'Maria, 35 — Fleet operator managing 12 pedicabs. Needs to quickly post openings and compare applicants.',
-        },
-      ],
     },
 
     earlyThinking: {
@@ -310,8 +298,8 @@ export const projects: Project[] = [
       description:
         'We started with paper sketches and FigJam flows before moving to Figma. This helped us focus on information architecture and user flows without getting distracted by visual details.',
       images: [
-        { src: '/images/Job Listingss.jpg', caption: 'Job listings — early wireframe exploration' },
-        { src: '/images/Job Details.jpg', caption: 'Job detail view — information hierarchy' },
+        { src: '/research & discovery/Flow Chart.jpg', caption: 'Job listings — early wireframe exploration' },
+        { src: '/research & discovery/Job Details.jpg', caption: 'Job detail view — information hierarchy' },
       ],
     },
 
@@ -343,8 +331,8 @@ export const projects: Project[] = [
       images: [
         { src: '/images/Job Listingss.jpg', caption: 'Job Listings' },
         { src: '/images/Job Details.jpg', caption: 'Job Details' },
-        { src: '/images/projects/Application Form.jpg', caption: 'Application Form' },
-        { src: '/images/projects/Mobile Experience.jpg', caption: 'Mobile Experience' },
+        { src: '/images/Application Form.jpg', caption: 'Application Form' },
+        { src: '/images/Mobile Experience.jpg', caption: 'Mobile Experience' },
       ],
     },
 
