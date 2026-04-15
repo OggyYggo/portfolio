@@ -11,6 +11,7 @@ export type Project = {
   description: string
   year: string
   featured?: boolean
+  routePrefix?: string          // e.g. 'gd' → /projects/gd/[slug]
   gallery?: {
     src: string
     caption: string
@@ -128,6 +129,19 @@ export type Project = {
 }
 
 export const projects: Project[] = [
+  {
+    slug: '1st-med-pharmacy',
+    title: '1st Med Pharmacy',
+    tagline: 'A complete brand identity for a medical pharmacy — from mark to packaging to in-store experience.',
+    category: 'Branding',
+    client: '1st Medical Pharmacy',
+    timeline: '6 Weeks',
+    image: '/images/gd-projects/1st-med-pharmacy/hero.jpg',
+    link: '',
+    description: 'Full brand identity — logo system, packaging, guidelines, and in-store signage.',
+    year: '2021',
+    routePrefix: 'gd',
+  },
   {
     slug: 'fiona-travel-tours',
     title: 'Fiona Travel & Tours Booking Website',

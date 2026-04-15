@@ -155,7 +155,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
               className="absolute inset-0 bg-background/90 flex flex-col items-center justify-center gap-3 opacity-0"
             >
               <Link
-                href={`/projects/${project.slug}`}
+                href={project.routePrefix ? `/projects/${project.routePrefix}/${project.slug}` : `/projects/${project.slug}`}
                 className="flex items-center gap-2 text-sm font-semibold text-accent-green hover:underline"
               >
                 View Project <FiArrowRight size={14} />
