@@ -6,8 +6,8 @@ import { Separator } from '@/components/ui/separator'
 type Props = {
   heading: string
   challenge1: string
-  challenge2: string
-  audience: string
+  challenge2?: string
+  audience?: string
   goals: string[]
 }
 
@@ -37,10 +37,10 @@ export default function GDBrief({ heading, challenge1, challenge2, audience, goa
                   The Challenge
                 </h3>
                 <p className="text-muted-foreground leading-relaxed text-sm">{challenge1}</p>
-                <p className="text-muted-foreground leading-relaxed text-sm">{challenge2}</p>
+                {challenge2 && <p className="text-muted-foreground leading-relaxed text-sm">{challenge2}</p>}
               </div>
               <div className="flex flex-col gap-2">
-                <p className="text-muted-foreground leading-relaxed text-sm">{audience}</p>
+                {audience && <p className="text-muted-foreground leading-relaxed text-sm">{audience}</p>}
               </div>
             </div>
           </motion.div>
