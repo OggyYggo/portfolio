@@ -126,7 +126,7 @@ export const gdProjects: GDProject[] = [
     tagline: 'A complete brand identity for a medical pharmacy — from mark to packaging to in-store experience.',
     year: '2021',
 
-    heroImage: '/images/gd-projects/1st-med-pharmacy/hero.jpg',
+    heroImage: '/1stmed/Cover.jpg',
     heroColor: '#F5EFE6',
 
     snapshot: {
