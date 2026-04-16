@@ -5,12 +5,13 @@ import { Separator } from '@/components/ui/separator'
 
 type Props = {
   heading: string
-  challenge: string
+  challenge1: string
+  challenge2: string
   audience: string
   goals: string[]
 }
 
-export default function GDBrief({ heading, challenge, audience, goals }: Props) {
+export default function GDBrief({ heading, challenge1, challenge2, audience, goals }: Props) {
   return (
     <section className="py-20">
       <div className="container mx-auto px-6">
@@ -35,12 +36,10 @@ export default function GDBrief({ heading, challenge, audience, goals }: Props) 
                 <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   The Challenge
                 </h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">{challenge}</p>
+                <p className="text-muted-foreground leading-relaxed text-sm">{challenge1}</p>
+                <p className="text-muted-foreground leading-relaxed text-sm">{challenge2}</p>
               </div>
               <div className="flex flex-col gap-2">
-                <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                  The Audience
-                </h3>
                 <p className="text-muted-foreground leading-relaxed text-sm">{audience}</p>
               </div>
             </div>

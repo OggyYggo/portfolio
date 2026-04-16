@@ -110,7 +110,7 @@ export default function GDLogoExploration({
                 src={finalMark.image}
                 alt="Logo on light background"
                 fill
-                className="object-contain p-10"
+                className="object-cover"
                 sizes="50vw"
               />
             </div>
@@ -119,7 +119,7 @@ export default function GDLogoExploration({
                 src={finalMark.darkImage}
                 alt="Logo on dark background"
                 fill
-                className="object-contain p-10"
+                className="object-cover"
                 sizes="50vw"
               />
             </div>

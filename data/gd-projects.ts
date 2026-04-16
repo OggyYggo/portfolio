@@ -22,8 +22,9 @@ export type GDProject = {
   // ── Section 3: Brief ──────────────────────────────────────────
   brief: {
     heading: string
-    challenge: string             // What problem did the client bring you?
-    audience: string              // Who is the target audience?
+    challenge1: string             // What problem did the client bring you?
+    // challenge2: string             // What problem did the client bring you?
+    // audience: string              // Who is the target audience?
     goals: string[]               // What did success look like?
   }
 
@@ -122,79 +123,74 @@ export type GDProject = {
 export const gdProjects: GDProject[] = [
   {
     slug: '1st-med-pharmacy',
-    title: '1st Med Pharmacy',
-    tagline: 'A complete brand identity for a medical pharmacy — from mark to packaging to in-store experience.',
+    title: '1STMED Pharmacy',
+    tagline: 'A complete brand identity for a medical pharmacy from mark to packaging to in-store experience.',
     year: '2021',
 
     heroImage: '/1stmed/Cover.jpg',
-    heroColor: '#F5EFE6',
+    
 
     snapshot: {
-      client: '1st Medical Pharmacy',
-      industry: 'Healthcare & Pharmacy',
+      client: '1STMED Pharmacy',
+      industry: 'Pharmacy',
       deliverables: [
-        'Brand Identity',
-        'Logo System',
+        'Logo Redesign',
+        'Color Palette',
+        'Typography',
+        'Signage Design',
+        'Staff Shirt Design',
         'Packaging Design',
-        'Brand Guidelines',
-        'Social Media Kit',
-        'In-store Signage',
       ],
-      year: '2024',
-      role: 'Brand Designer',
+      year: '2021',
+      role: 'Brand & Graphic Designer',
     },
 
     brief: {
       heading: 'The Brief',
-      challenge: 'Bloom was a beloved neighborhood bakery with a loyal following — but their visual identity looked like it was made in Microsoft Word in 2009. They were expanding to 3 new locations and needed a brand that matched the quality of their product.',
-      audience: 'Urban professionals aged 25–45 who treat themselves to premium everyday experiences. They care about craft, quality, and aesthetics. They\'d notice bad kerning.',
+      challenge1: '1STMED had been operating for several years but their visual identity didnt reflect the quality of their service. Their logo felt dated, their signage was inconsistent, and their staff uniforms had no brand cohesion. The goal was to build a complete brand system that felt trustworthy, modern, and distinctly Filipino healthcare.',
       goals: [
-        'Feel premium without feeling pretentious',
-        'Work across packaging, signage, digital, and merchandise',
-        'Be timeless — not trend-chasing',
-        'Reflect the handmade, organic nature of the product',
+        'Improve brand recognition',
+        'Ensure Consistency Across All Touchpoints',
+        'Build customer trust through visuals',
       ],
     },
 
     creativeDirection: {
       heading: 'Creative Direction',
-      approach: 'We landed on "refined warmth" — the feeling of a Sunday morning, natural light, and something baked from scratch. The direction pulls from vintage French patisserie aesthetics but strips away the fussiness, leaving something clean, confident, and contemporary.',
+      approach: 'The creative direction integrates subtle Christian symbolism representing the Book, the Blood, and the Blessed Hope into a clean and modern healthcare identity that maintains professionalism while reflecting the client’s faith.',
       moodboard: {
         images: [
           '/images/gd-projects/bloom-bakery/mood-1.jpg',
           '/images/gd-projects/bloom-bakery/mood-2.jpg',
           '/images/gd-projects/bloom-bakery/mood-3.jpg',
-          '/images/gd-projects/bloom-bakery/mood-4.jpg',
-          '/images/gd-projects/bloom-bakery/mood-5.jpg',
-          '/images/gd-projects/bloom-bakery/mood-6.jpg',
         ],
         caption: 'Moodboard — refined warmth, vintage French patisserie stripped of fussiness',
       },
       palette: [
-        { name: 'Warm Cream', hex: '#F5EFE6', usage: 'Primary background — packaging, stationery' },
-        { name: 'Espresso', hex: '#2C1810', usage: 'Primary text, logo mark' },
-        { name: 'Dusty Rose', hex: '#D4A5A5', usage: 'Accent — seasonal items, social media' },
-        { name: 'Sage', hex: '#8FAF8B', usage: 'Secondary accent — savory range' },
-        { name: 'Warm White', hex: '#FAFAF7', usage: 'Clean backgrounds, digital' },
+        { name: 'Cyan', hex: '#01e1bf', usage: 'Primary background — packaging, stationery' },
+        { name: 'Dark Cyan', hex: '#00c3af', usage: 'Primary text, logo mark' },
+        { name: 'Secondary Color', hex: '#017165', usage: 'Secondary accent — savory range' },
+         { name: 'Crimson Red', hex: '#d20001', usage: 'Accent — seasonal items, social media' },
+        { name: 'White', hex: '#FFFFFF', usage: 'Clean backgrounds, digital' },
       ],
       typography: [
         {
-          role: 'Display',
-          fontName: 'Canela Display',
-          sample: 'Bloom',
-          rationale: 'Canela has an organic, handcrafted quality in its curves — it feels warm without being childish. The italics especially evoke a hand-lettered signage aesthetic.',
+          role: 'Main',
+          fontName: 'Core Mellow',
+          sample: '1STMED PHARMACY',
+          rationale: 'Core Mellow was used for the main “1STMED Pharmacy” text due to its clean, modern, and approachable form. Its rounded and structured letterforms create a sense of trust and friendliness, making it well-suited for a healthcare brand that aims to feel both professional and community-oriented.',
         },
         {
-          role: 'Body',
-          fontName: 'Freight Text Pro',
-          sample: 'Baked fresh daily',
-          rationale: 'A refined serif for packaging copy and menus. Legible at small sizes, elegant at large ones. Pairs with Canela without competing.',
+          role: 'Secondary',
+          fontName: 'Freestyle Script',
+          sample: 'Your health is our first priority',
+          rationale: 'Freestyle Script was applied to supporting text to introduce a human and expressive touch. This adds warmth and personality to the brand, subtly reflecting care and approachability while helping the identity feel less clinical and more relatable.',
         },
         {
-          role: 'Accent',
-          fontName: 'Neue Haas Grotesk',
-          sample: 'EST. 2019',
-          rationale: 'A clean sans-serif for labels, stamps, and utility text. Grounds the warmth of the other two fonts.',
+          role: 'Secondary',
+          fontName: 'Trebuchet MS',
+          sample: 'Generic and Branded Medicines',
+          rationale: 'Trebuchet MS was used for subtext and informational content because of its high readability and accessibility, especially across both print and digital formats. Its clean structure ensures that important information remains clear, particularly for a wide audience including elderly customers.',
         },
       ],
     },
@@ -223,8 +219,8 @@ export const gdProjects: GDProject[] = [
         },
       ],
       finalMark: {
-        image: '/images/gd-projects/bloom-bakery/logo-final-light.jpg',
-        darkImage: '/images/gd-projects/bloom-bakery/logo-final-dark.jpg',
+        image: '/1stMed/Lightt.jpg',
+        darkImage: '/1stMed/Darkk.jpg',
         caption: 'Final logo — light and dark versions',
       },
     },
@@ -261,13 +257,14 @@ export const gdProjects: GDProject[] = [
       heading: 'In the Real World',
       description: 'Design only exists in context. Here\'s how the brand lives across every touchpoint.',
       items: [
-        { label: 'Packaging — Bread Bags', image: '/images/gd-projects/bloom-bakery/mockup-bags.jpg', fullWidth: true },
-        { label: 'Business Cards', image: '/images/gd-projects/bloom-bakery/mockup-cards.jpg' },
-        { label: 'Coffee Cups', image: '/images/gd-projects/bloom-bakery/mockup-cups.jpg' },
-        { label: 'Tote Bag', image: '/images/gd-projects/bloom-bakery/mockup-tote.jpg' },
-        { label: 'In-store Signage', image: '/images/gd-projects/bloom-bakery/mockup-signage.jpg', fullWidth: true },
-        { label: 'Social Media Templates', image: '/images/gd-projects/bloom-bakery/mockup-social.jpg' },
-        { label: 'Staff Aprons', image: '/images/gd-projects/bloom-bakery/mockup-apron.jpg' },
+        { label: 'Packaging', image: '/Mockups/Tote.jpg', fullWidth: true },
+        { label: 'Business Cards', image: '/Mockups/Staff ID.jpg' },
+        { label: 'Umbrella', image: '/Mockups/Umbrella.jpg' },
+        { label: 'Tote Bag', image: '/Mockups/Tote.jpg' },
+        { label: 'Signage', image: '/Mockups/Signage.jpg', fullWidth: true },
+        { label: 'Social Media Post', image: '/Mockups/Social Media Post.jpg' },
+        { label: 'Staff Shirt', image: '/Mockups/Shirt.jpg' },
+        { label: 'Tarp Design', image: '/Mockups/Tarp.jpg' },
       ],
     },
 
@@ -286,8 +283,8 @@ export const gdProjects: GDProject[] = [
     beforeAfter: {
       heading: 'Before & After',
       description: 'The same brand. Two completely different stories.',
-      before: '/images/gd-projects/bloom-bakery/before.jpg',
-      after: '/images/gd-projects/bloom-bakery/after.jpg',
+      before: '/1stmed/Beforee.jpg',
+      after: '/1stmed/Afterrs.jpg',
       beforeLabel: 'Old Identity',
       afterLabel: 'New Identity',
     },
