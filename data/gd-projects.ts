@@ -228,26 +228,26 @@ export const gdProjects: GDProject[] = [
     brandSystem: {
       heading: 'Brand System',
       description: 'A brand is more than a logo. Every touchpoint — from the color of a paper bag to the weight of a price tag font — is part of the system.',
-      systemImage: '/images/gd-projects/bloom-bakery/brand-system-overview.jpg',
+      systemImage: '/1stmed/Brand System Overviewss.jpg',
       components: [
         {
           title: 'Color System',
-          image: '/images/gd-projects/bloom-bakery/system-colors.jpg',
+          image: '/1stmed/Color System.jpg',
           description: 'Five colors with defined usage rules — primary, secondary, and seasonal accents.',
         },
         {
           title: 'Type Scale',
-          image: '/images/gd-projects/bloom-bakery/system-type.jpg',
+          image: '/1stmed/Type Scale.jpg',
           description: 'Defined hierarchy from display headings to caption text across print and digital.',
         },
         {
           title: 'Texture & Pattern',
-          image: '/images/gd-projects/bloom-bakery/system-pattern.jpg',
+          image: '/1stmed/Texture & Pattern.jpg',
           description: 'A custom geometric pattern derived from the logo mark — used on tissue paper, bags, and seasonal packaging.',
         },
         {
           title: 'Iconography',
-          image: '/images/gd-projects/bloom-bakery/system-icons.jpg',
+          image: '/1stmed/Iconography.jpg',
           description: 'A small set of hand-drawn icons for menu categories — pastries, breads, drinks, seasonal.',
         },
       ],

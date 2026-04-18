@@ -36,7 +36,7 @@ export default function GDCreativeDirection({
           <p className="text-muted-foreground leading-relaxed">{approach}</p>
         </motion.div>
 
-        {/* Moodboard grid */}
+        {/* Moodboard grid — temporarily disabled
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,6 +69,7 @@ export default function GDCreativeDirection({
             {moodboard.caption}
           </p>
         </motion.div>
+        */}
 
         {/* Color Palette */}
         <motion.div
@@ -123,10 +124,7 @@ export default function GDCreativeDirection({
                 {/* Sample */}
                 <div className="flex flex-col gap-1">
                   <span className="text-xs text-muted-foreground">{type.fontName}</span>
-                  <span
-                    className="text-4xl md:text-5xl font-bold leading-none tracking-tight"
-                    style={{ fontFamily: type.fontName }}
-                  >
+                  <span className="text-4xl md:text-5xl font-bold leading-none tracking-tight">
                     {type.sample}
                   </span>
                 </div>
