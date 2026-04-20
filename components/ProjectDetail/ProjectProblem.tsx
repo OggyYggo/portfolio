@@ -5,10 +5,10 @@ import { Separator } from '@/components/ui/separator'
 type Props = {
   heading: string
   body: string[]
-  painPoints: string[]
+  goals: string[]
 }
 
-export default function ProjectProblem({ heading, body, painPoints }: Props) {
+export default function ProjectProblem({ heading, body, goals }: Props) {
   return (
     <section className="py-20">
       <div className="container mx-auto px-6">
@@ -33,7 +33,7 @@ export default function ProjectProblem({ heading, body, painPoints }: Props) {
             ))}
           </motion.div>
 
-          {/* Right — Pain points */}
+          {/* Right — Goals */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -42,10 +42,10 @@ export default function ProjectProblem({ heading, body, painPoints }: Props) {
             className="flex flex-col gap-4"
           >
             <h3 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-              User Pain Points
+              Goal
             </h3>
             <ul className="flex flex-col gap-3">
-              {painPoints.map((point, i) => (
+              {goals.map((point, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm">
                   <span className="mt-1.5 w-2 h-2 rounded-full bg-destructive shrink-0" />
                   {point}

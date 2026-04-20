@@ -42,13 +42,13 @@ export type Project = {
   problem?: {
     heading: string
     body: string[]
-    painPoints: string[]
+    goals: string[]
   }
 
   // ── Section 4: Research ───────────────────────────
   research?: {
     heading: string
-    intro: string
+    intro: string[]
     methods: {
       title: string
       description: string
@@ -59,8 +59,16 @@ export type Project = {
         alt: string
         caption: string
       }
+      personas?: {
+        name: string
+        role: string
+        avatar?: string
+        quote: string
+        goals: string[]
+        painPoints: string[]
+      }[]
     }[]
-    insights: {
+    insights?: {
       text: string
       source: string
     }[]
@@ -183,10 +191,9 @@ export const projects: Project[] = [
     problem: {
       heading: 'The Problem',
       body: [
-        'Pedicab drivers and operators had no reliable way to post or find job openings. The existing process was entirely offline — handwritten notices, word-of-mouth referrals, and chance encounters at terminals.',
-        'This created a massive inefficiency: qualified drivers couldn\'t find work, and operators struggled to fill positions quickly. Both sides wasted time and missed opportunities.',
+        'Local job seekers struggle to apply for jobs quickly and efficiently because existing platforms are complex, time-consuming, and not user-friendly.',
       ],
-      painPoints: [
+      goals: [
         'Enables quick and easy job applications',
         'Reduces user effort and cognitive load',
         'Provides a clean, intuitive interface',
@@ -195,22 +202,27 @@ export const projects: Project[] = [
     },
 
     research: {
-      heading: 'Research & Discovery',
-      intro: 'Before designing a single screen, we spent the first month deeply embedded in the pedicab community — interviewing drivers and operators, surveying 50+ users, and studying existing job platforms. Every design decision traces back to what we learned here.',
+      heading: 'Research Process',
+      intro: [
+        'User surveys to gather insights on traveler behavior and frustrations',
+        'Data visualization (graphs) to analyze patterns',
+        'Competitive audit of existing job apps',
+        'Analysis of user feedback to identify pain points',
+      ],
       methods: [
         {
-          title: 'User Interviews',
+          title: 'Competitive Analysis',
           description:
-            'Conducted 10 interviews with pedicab drivers and 5 with operators to understand daily workflows, frustrations, and technology comfort levels.',
-          stat: '15 participants · 30 min each',
+            'Analyzed 5 existing job apps to identify gaps and opportunities for improvement.',
+          stat: '5 apps analyzed',
           proofImage: {
-            src: '/images/projects/pedi-jobs/research-interviews.jpg',
-            alt: 'User interview session with pedicab drivers',
-            caption: 'Field interview with pedicab drivers — understanding daily workflows and frustrations firsthand',
+            src: '/research & discovery/Competitive Analysis.jpg',
+            alt: 'Competitive analysis of job apps',
+            caption: 'Competitive analysis of existing job apps — identifying gaps and opportunities',
           },
         },
         {
-          title: 'Survey Analysis',
+          title: 'Data Visualization',
           description:
             'This graph shows the distribution of survey responses across different age groups and experience levels.',
           stat: '20 respondents',
@@ -221,55 +233,67 @@ export const projects: Project[] = [
           },
         },
         {
-          title: 'Competitive Analysis',
-          description:
-            'Analyzed 5 general-purpose job platforms (PhilJobNet, Jobstreet, Boss Job, Facebook Jobs) to identify UX patterns that could be adapted for a niche audience.',
-          stat: '5 platforms · 10 dimensions',
-          proofImage: {
-            src: '/research & discovery/Competitive Analysis.jpg',
-            alt: 'Competitor analysis board in Google Sheets',
-            caption: 'Google Sheets competitor audit — side-by-side comparison of 5 job platforms across 10 UX dimensions',
-          },
-        },
-        {
-          title: 'Persona Development',
+          title: 'User Persona',
           description:
             'Created 2 primary personas — a job-seeking driver and a fleet operator — to anchor all design decisions in real user needs.',
           stat: '2 personas',
+          personas: [
+            {
+              name: 'Michael Muring',
+              role: 'Driver',
+              avatar: '/images/Michael.jpg',
+              quote: '"I just want a legit job that pays on time — no middlemen, no scams."',
+              goals: [
+                'Find verified driving jobs quickly',
+                'Compare salary and benefits easily',
+                'Apply directly without a recruiter',
+              ],
+              painPoints: [
+                'Hard to tell legit posts from scams',
+                'Most apps require desktop access he doesn\'t have',
+                'No way to verify operator credibility',
+              ],
+            },
+            {
+              name: 'Maria Reyes',
+              role: 'Fleet Operator',
+              avatar: '/images/personas/maria.jpg',
+              quote: '"I need reliable drivers fast — posting on Facebook groups is hit or miss."',
+              goals: [
+                'Post jobs and get qualified applicants',
+                'Screen drivers by experience and license',
+                'Manage multiple job listings efficiently',
+              ],
+              painPoints: [
+                'Current channels attract unqualified applicants',
+                'No centralized dashboard for hiring',
+                'Difficult to communicate with applicants at scale',
+              ],
+            },
+          ],
+        },
+        {
+          title: 'Low-Fidelity Designs',
+          description:
+            'These sketches show the initial layout and user flow concepts created during the early design phase.',
+          stat: 'Early Phase',
           proofImage: {
-            src: '/images/projects/pedi-jobs/research-personas.jpg',
-            alt: 'User persona documents in Figma',
-            caption: 'Figma persona documents — driver and operator archetypes grounded in interview data',
+            src: '/images/Low Fri.png',
+            alt: 'Low-fidelity wireframes in Figma',
+            caption: 'Figma low-fidelity wireframes — initial layout and navigation flows for jobseeker views',
           },
         },
-      ],
-      insights: [
         {
-          text: 'Most users access the internet only through smartphones — desktop is not viable.',
-          source: 'User interviews + survey data',
+          title: 'User Flow',
+          description:
+            'Mapped out the end-to-end user journey for jobseekers to ensure seamless navigation and task completion.',
+          stat: 'flows',
+          proofImage: {
+            src: '/research & discovery/Flow Chart.jpg',
+            alt: 'User flow diagram',
+            caption: 'User flow diagram — mapping key paths for jobseeker job search workflows',
+          },
         },
-        {
-          text: 'Trust and legitimacy are top concerns — users need to verify operators before applying.',
-          source: 'User interviews',
-        },
-        {
-          text: 'Simplicity is critical — many users have limited digital literacy.',
-          source: 'Field observations',
-        },
-        {
-          text: 'Instant notifications for new jobs would be the #1 valued feature.',
-          source: 'Survey data',
-        },
-      ],
-    },
-
-    earlyThinking: {
-      heading: 'Early Thinking',
-      description:
-        'We started with paper sketches and FigJam flows before moving to Figma. This helped us focus on information architecture and user flows without getting distracted by visual details.',
-      images: [
-        { src: '/research & discovery/Flow Chart.jpg', caption: 'Job listings — early wireframe exploration' },
-        { src: '/research & discovery/Job Details.jpg', caption: 'Job detail view — information hierarchy' },
       ],
     },
 

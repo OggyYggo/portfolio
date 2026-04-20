@@ -71,7 +71,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             {project.overview && <ProjectOverview {...project.overview} />}
             {project.problem && <ProjectProblem {...project.problem} />}
             {project.research && <ProjectResearch {...project.research} />}
-            {project.earlyThinking && <ProjectEarlyThinking {...project.earlyThinking} />}
             {project.decisions && <ProjectDecisions {...project.decisions} />}
             {project.finalDesigns && <ProjectFinalDesigns {...project.finalDesigns} />}
             {project.beforeAfter && <ProjectBeforeAfter {...project.beforeAfter} />}
