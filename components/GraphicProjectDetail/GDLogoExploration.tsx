@@ -4,6 +4,8 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
+import Lightbox from '@/components/ui/Lightbox'
+import { useLightbox } from '@/hooks/useLightbox'
 
 type Direction = {
   label: string
@@ -26,12 +28,36 @@ type Props = {
 const statusConfig = {
   rejected: { label: 'Rejected', variant: 'destructive' as const },
   refined:  { label: 'Refined',  variant: 'secondary' as const },
-  chosen:   { label: 'Chosen', variant: 'default' as const },
+  chosen:   { label: 'Chosen ✓', variant: 'default' as const },
 }
 
 export default function GDLogoExploration({
   heading, description, directions, finalMark
 }: Props) {
+  const { open, index, openAt, close } = useLightbox()
+
+  // All images in one flat slides array
+  const slides = [
+    ...directions.map((d) => ({
+      src: d.image,
+      alt: d.label,
+      title: d.label,
+      description: d.note,
+    })),
+    {
+      src: finalMark.image,
+      alt: 'Final logo — light',
+      title: 'Final Mark — Light',
+      description: finalMark.caption,
+    },
+    {
+      src: finalMark.darkImage,
+      alt: 'Final logo — dark',
+      title: 'Final Mark — Dark',
+      description: finalMark.caption,
+    },
+  ]
+
   return (
     <section className="py-20">
       <div className="container mx-auto px-6 flex flex-col gap-12">
@@ -68,15 +94,22 @@ export default function GDLogoExploration({
                   : 'bg-muted/20'
               }`}
             >
-              {/* Logo image */}
-              <div className="relative aspect-square rounded-xl overflow-hidden bg-white">
+              <div
+                onClick={() => openAt(i)}
+                className="relative aspect-square rounded-xl overflow-hidden bg-white cursor-zoom-in group"
+              >
                 <Image
                   src={dir.image}
                   alt={dir.label}
                   fill
-                  className="object-contain p-6"
+                  className="object-contain p-6 transition-transform duration-300 group-hover:scale-105"
                   sizes="33vw"
                 />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center">
+                  <span className="text-2xl opacity-0 group-hover:opacity-100 transition-opacity">
+                    🔍
+                  </span>
+                </div>
               </div>
 
               {/* Label + status */}
@@ -105,24 +138,29 @@ export default function GDLogoExploration({
             Final Mark
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="relative aspect-video rounded-2xl overflow-hidden bg-white border">
-              <Image
-                src={finalMark.image}
-                alt="Logo on light background"
-                fill
-                className="object-cover"
-                sizes="50vw"
-              />
-            </div>
-            <div className="relative aspect-video rounded-2xl overflow-hidden bg-foreground border">
-              <Image
-                src={finalMark.darkImage}
-                alt="Logo on dark background"
-                fill
-                className="object-cover"
-                sizes="50vw"
-              />
-            </div>
+            {[
+              { src: finalMark.image, alt: 'Light', bg: 'bg-white', slideIndex: directions.length },
+              { src: finalMark.darkImage, alt: 'Dark', bg: 'bg-foreground', slideIndex: directions.length + 1 },
+            ].map((item) => (
+              <div
+                key={item.alt}
+                onClick={() => openAt(item.slideIndex)}
+                className={`relative aspect-video rounded-2xl overflow-hidden border cursor-zoom-in group ${item.bg}`}
+              >
+                <Image
+                  src={item.src}
+                  alt={`Logo on ${item.alt} background`}
+                  fill
+                  className="object-contain p-10 transition-transform duration-300 group-hover:scale-105"
+                  sizes="50vw"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center">
+                  <span className="text-2xl opacity-0 group-hover:opacity-100 transition-opacity">
+                    🔍
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
           <p className="text-xs text-muted-foreground italic text-center">
             {finalMark.caption}
@@ -130,6 +168,8 @@ export default function GDLogoExploration({
         </motion.div>
 
       </div>
+
+      <Lightbox slides={slides} open={open} index={index} onClose={close} />
     </section>
   )
 }

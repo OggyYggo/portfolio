@@ -31,6 +31,7 @@ export type Project = {
   // ── Section 2: Overview ───────────────────────────
   overview?: {
     client: string
+    clientLabel?: string
     timeline: string
     role: string
     tools: string[]
@@ -172,10 +173,11 @@ export const projects: Project[] = [
 
     overview: {
       client: 'Internship Project',
+      clientLabel: 'Industry',
       timeline: '3 Months',
       role: 'UI/UX Designer & UX Researcher',
-      tools: ['Figma', 'FigJam', 'Google Forms', 'Maze'],
-      link: 'https://yourproject.com',
+      tools: ['Figma', 'FigJam', 'Google Forms'],
+      link: 'https://www.figma.com/design/zscnhDZ0ZCdxKdUzbLRW8x/Job-Screenshots?node-id=0-1&t=UJRJsRtlZjuAVAt7-1',
     },
 
     problem: {
@@ -185,11 +187,10 @@ export const projects: Project[] = [
         'This created a massive inefficiency: qualified drivers couldn\'t find work, and operators struggled to fill positions quickly. Both sides wasted time and missed opportunities.',
       ],
       painPoints: [
-        'No centralized job board for the pedicab industry',
-        'Application process was entirely manual and in-person',
-        'Drivers had no way to showcase experience or credentials',
-        'Operators couldn\'t filter or compare applicants effectively',
-        'Mobile access was essential — most users only had smartphones',
+        'Enables quick and easy job applications',
+        'Reduces user effort and cognitive load',
+        'Provides a clean, intuitive interface',
+        'Helps users discover and apply to jobs efficiently',
       ],
     },
 

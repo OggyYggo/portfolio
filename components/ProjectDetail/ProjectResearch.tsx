@@ -5,6 +5,8 @@ import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
+import Lightbox from '@/components/ui/Lightbox'
+import { useLightbox } from '@/hooks/useLightbox'
 
 type ResearchMethod = {
   title: string
@@ -44,6 +46,37 @@ export default function ProjectResearch({
   insights,
   artifacts,
 }: Props) {
+  const { open, index, openAt, close } = useLightbox()
+
+  // Build slides from all method proof images + artifact images
+  const methodSlides = methods
+    .map((m) => {
+      if (m.proofImage) return { src: m.proofImage.src, alt: m.proofImage.alt, title: m.title, description: m.proofImage.caption }
+      if (m.image) return { src: m.image, alt: m.title, title: m.title }
+      return null
+    })
+    .filter(Boolean) as { src: string; alt: string; title: string; description?: string }[]
+
+  const artifactSlides = (artifacts ?? []).map((a) => ({
+    src: a.image,
+    alt: a.title,
+    title: a.title,
+    description: a.description,
+  }))
+
+  const slides = [...methodSlides, ...artifactSlides]
+
+  // Track which slide index each method maps to
+  const methodIndices = methods.map((m) => {
+    if (m.proofImage || m.image) {
+      const idx = methodSlides.findIndex(
+        (s) => s.src === (m.proofImage?.src ?? m.image)
+      )
+      return idx
+    }
+    return -1
+  })
+
   return (
     <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-6 flex flex-col gap-16">
@@ -84,28 +117,44 @@ export default function ProjectResearch({
               <div style={{ direction: 'ltr' }} className="flex flex-col gap-3">
                 {method.proofImage ? (
                   <>
-                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border shadow-sm">
+                    <div
+                      onClick={() => methodIndices[i] >= 0 && openAt(methodIndices[i])}
+                      className="relative aspect-[4/3] rounded-2xl overflow-hidden border shadow-sm cursor-zoom-in group"
+                    >
                       <Image
                         src={method.proofImage.src}
                         alt={method.proofImage.alt}
                         fill
-                        className="object-cover"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 1024px) 100vw, 50vw"
                       />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                        <span className="text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity">
+                          🔍
+                        </span>
+                      </div>
                     </div>
                     <p className="text-xs text-muted-foreground italic text-center px-2">
                       {method.proofImage.caption}
                     </p>
                   </>
                 ) : method.image ? (
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border shadow-sm">
+                  <div
+                    onClick={() => methodIndices[i] >= 0 && openAt(methodIndices[i])}
+                    className="relative aspect-[4/3] rounded-2xl overflow-hidden border shadow-sm cursor-zoom-in group"
+                  >
                     <Image
                       src={method.image}
                       alt={method.title}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                      <span className="text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity">
+                        🔍
+                      </span>
+                    </div>
                   </div>
                 ) : (
                   <div className="aspect-[4/3] rounded-2xl border border-dashed border-muted-foreground/20 flex items-center justify-center bg-muted/50">
@@ -205,7 +254,10 @@ export default function ProjectResearch({
                   viewport={{ once: true }}
                   className="flex flex-col gap-3"
                 >
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden border shadow-sm group">
+                  <div
+                    onClick={() => openAt(methodSlides.length + i)}
+                    className="relative aspect-[4/3] rounded-xl overflow-hidden border shadow-sm group cursor-zoom-in"
+                  >
                     <Image
                       src={artifact.image}
                       alt={artifact.title}
@@ -213,6 +265,11 @@ export default function ProjectResearch({
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                      <span className="text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity">
+                        🔍
+                      </span>
+                    </div>
                   </div>
                   <div className="flex flex-col gap-1">
                     <h4 className="text-sm font-semibold">{artifact.title}</h4>
@@ -227,6 +284,8 @@ export default function ProjectResearch({
         )}
 
       </div>
+
+      <Lightbox slides={slides} open={open} index={index} onClose={close} />
     </section>
   )
 }

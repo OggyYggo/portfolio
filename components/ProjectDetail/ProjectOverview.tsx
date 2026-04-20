@@ -6,13 +6,14 @@ import Link from 'next/link'
 
 type Props = {
   client: string
+  clientLabel?: string
   timeline: string
   role: string
   tools: string[]
   link?: string
 }
 
-export default function ProjectOverview({ client, timeline, role, tools, link }: Props) {
+export default function ProjectOverview({ client, clientLabel = 'Client', timeline, role, tools, link }: Props) {
   return (
     <section className="py-16 border-b">
       <div className="container mx-auto px-6">
@@ -24,7 +25,7 @@ export default function ProjectOverview({ client, timeline, role, tools, link }:
           className="grid grid-cols-2 md:grid-cols-4 gap-8"
         >
           {[
-            { label: 'Client', value: client },
+            { label: clientLabel, value: client },
             { label: 'Timeline', value: timeline },
             { label: 'Role', value: role },
           ].map((item) => (

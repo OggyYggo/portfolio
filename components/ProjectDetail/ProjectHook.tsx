@@ -2,6 +2,8 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Badge } from '@/components/ui/badge'
+import Lightbox from '@/components/ui/Lightbox'
+import { useLightbox } from '@/hooks/useLightbox'
 
 type Props = {
   title: string
@@ -12,6 +14,10 @@ type Props = {
 }
 
 export default function ProjectHook({ title, tagline, role, heroImage, problemStatement }: Props) {
+  const { open, index, openAt, close } = useLightbox()
+
+  const slides = [{ src: heroImage, alt: title, title, description: problemStatement }]
+
   return (
     <section className="flex flex-col">
 
@@ -38,7 +44,8 @@ export default function ProjectHook({ title, tagline, role, heroImage, problemSt
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="relative w-full aspect-[21/9] overflow-hidden"
+        className="relative w-full aspect-[21/9] overflow-hidden cursor-zoom-in"
+        onClick={() => openAt(0)}
       >
         <Image
           src={heroImage}
@@ -48,8 +55,13 @@ export default function ProjectHook({ title, tagline, role, heroImage, problemSt
           priority
           sizes="100vw"
         />
+        {/* Zoom hint */}
+        <div className="absolute bottom-4 right-4 bg-black/40 text-white text-xs px-3 py-1.5 rounded-full backdrop-blur-sm flex items-center gap-1.5">
+          <span>🔍</span> Click to zoom
+        </div>
       </motion.div>
 
+      <Lightbox slides={slides} open={open} index={index} onClose={close} />
     </section>
   )
 }

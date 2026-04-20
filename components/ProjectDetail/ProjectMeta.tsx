@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { FiExternalLink } from 'react-icons/fi'
+import Lightbox from '@/components/ui/Lightbox'
+import { useLightbox } from '@/hooks/useLightbox'
 
 type Props = {
   heroImage: string
@@ -17,6 +19,10 @@ type Props = {
 export default function ProjectMeta({
   heroImage, category, client, timeline, link, summary
 }: Props) {
+  const { open, index, openAt, close } = useLightbox()
+
+  const slides = [{ src: heroImage, alt: 'Project hero', title: 'Project Preview' }]
+
   return (
     <div className="flex flex-col gap-10">
 
@@ -25,16 +31,22 @@ export default function ProjectMeta({
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7 }}
-        className="relative w-full aspect-[16/8] rounded-2xl overflow-hidden"
+        className="relative w-full aspect-[16/8] rounded-2xl overflow-hidden cursor-zoom-in group"
+        onClick={() => openAt(0)}
       >
         <Image
           src={heroImage}
           alt="Project hero"
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
           priority
           sizes="100vw"
         />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+          <span className="text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity">
+            🔍
+          </span>
+        </div>
       </motion.div>
 
       {/* Meta + Summary two columns */}
@@ -88,6 +100,7 @@ export default function ProjectMeta({
         </motion.div>
 
       </div>
+      <Lightbox slides={slides} open={open} index={index} onClose={close} />
     </div>
   )
 }

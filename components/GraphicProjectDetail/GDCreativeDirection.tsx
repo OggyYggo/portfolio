@@ -3,6 +3,8 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Separator } from '@/components/ui/separator'
+import Lightbox from '@/components/ui/Lightbox'
+import { useLightbox } from '@/hooks/useLightbox'
 
 type Props = {
   heading: string
@@ -15,6 +17,15 @@ type Props = {
 export default function GDCreativeDirection({
   heading, approach, moodboard, palette, typography
 }: Props) {
+  const { open, index, openAt, close } = useLightbox()
+
+  const slides = moodboard.images.map((src, i) => ({
+    src,
+    alt: `Moodboard image ${i + 1}`,
+    title: 'Moodboard',
+    description: moodboard.caption,
+  }))
+
   return (
     <section className="py-20 bg-muted/20">
       <div className="container mx-auto px-6 flex flex-col gap-16">
@@ -36,7 +47,7 @@ export default function GDCreativeDirection({
           <p className="text-muted-foreground leading-relaxed">{approach}</p>
         </motion.div>
 
-        {/* Moodboard grid — temporarily disabled
+        {/* Moodboard — clickable grid */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -51,17 +62,24 @@ export default function GDCreativeDirection({
             {moodboard.images.map((src, i) => (
               <div
                 key={i}
-                className={`relative overflow-hidden rounded-xl ${
+                onClick={() => openAt(i)}
+                className={`relative overflow-hidden rounded-xl cursor-zoom-in group ${
                   i === 0 ? 'aspect-[4/3] md:row-span-2' : 'aspect-square'
                 }`}
               >
                 <Image
                   src={src}
-                  alt={`Moodboard image ${i + 1}`}
+                  alt={`Moodboard ${i + 1}`}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                   sizes="(max-width: 768px) 50vw, 33vw"
                 />
+                {/* Hover zoom icon */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                  <span className="text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    🔍
+                  </span>
+                </div>
               </div>
             ))}
           </div>
@@ -69,7 +87,6 @@ export default function GDCreativeDirection({
             {moodboard.caption}
           </p>
         </motion.div>
-        */}
 
         {/* Color Palette */}
         <motion.div
@@ -139,6 +156,8 @@ export default function GDCreativeDirection({
         </motion.div>
 
       </div>
+
+      <Lightbox slides={slides} open={open} index={index} onClose={close} />
     </section>
   )
 }

@@ -2,6 +2,8 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Separator } from '@/components/ui/separator'
+import Lightbox from '@/components/ui/Lightbox'
+import { useLightbox } from '@/hooks/useLightbox'
 
 type Props = {
   heading: string
@@ -10,6 +12,14 @@ type Props = {
 }
 
 export default function ProjectEarlyThinking({ heading, description, images }: Props) {
+  const { open, index, openAt, close } = useLightbox()
+
+  const slides = images.map((img) => ({
+    src: img.src,
+    alt: img.caption,
+    title: img.caption,
+  }))
+
   return (
     <section className="py-20">
       <div className="container mx-auto px-6 flex flex-col gap-10">
@@ -41,14 +51,22 @@ export default function ProjectEarlyThinking({ heading, description, images }: P
               viewport={{ once: true }}
               className="flex flex-col gap-3"
             >
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden border bg-muted">
+              <div
+                onClick={() => openAt(i)}
+                className="relative aspect-[4/3] rounded-xl overflow-hidden border bg-muted cursor-zoom-in group"
+              >
                 <Image
                   src={img.src}
                   alt={img.caption}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, 50vw"
                 />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                  <span className="text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity">
+                    🔍
+                  </span>
+                </div>
               </div>
               <p className="text-xs text-muted-foreground">{img.caption}</p>
             </motion.div>
@@ -56,6 +74,8 @@ export default function ProjectEarlyThinking({ heading, description, images }: P
         </div>
 
       </div>
+
+      <Lightbox slides={slides} open={open} index={index} onClose={close} />
     </section>
   )
 }

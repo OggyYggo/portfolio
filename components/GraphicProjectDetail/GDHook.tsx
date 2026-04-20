@@ -2,6 +2,8 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import Lightbox from '@/components/ui/Lightbox'
+import { useLightbox } from '@/hooks/useLightbox'
 
 type Props = {
   title: string
@@ -11,6 +13,10 @@ type Props = {
 }
 
 export default function GDHook({ title, tagline, heroImage, heroColor }: Props) {
+  const { open, index, openAt, close } = useLightbox()
+
+  const slides = [{ src: heroImage, alt: title, title, description: tagline }]
+
   return (
     <section>
       {/* Full-bleed hero image — no text on top */}
@@ -18,8 +24,9 @@ export default function GDHook({ title, tagline, heroImage, heroColor }: Props) 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="relative w-full"
+        className="relative w-full cursor-zoom-in"
         style={{ backgroundColor: heroColor ?? 'transparent' }}
+        onClick={() => openAt(0)}
       >
         <div className="relative w-full aspect-[21/9] overflow-hidden">
           <Image
@@ -30,6 +37,10 @@ export default function GDHook({ title, tagline, heroImage, heroColor }: Props) 
             priority
             sizes="100vw"
           />
+          {/* Zoom hint */}
+          <div className="absolute bottom-4 right-4 bg-black/40 text-white text-xs px-3 py-1.5 rounded-full backdrop-blur-sm flex items-center gap-1.5">
+            <span>🔍</span> Click to zoom
+          </div>
         </div>
       </motion.div>
 
@@ -49,6 +60,8 @@ export default function GDHook({ title, tagline, heroImage, heroColor }: Props) 
           </p>
         </motion.div>
       </div>
+
+      <Lightbox slides={slides} open={open} index={index} onClose={close} />
     </section>
   )
 }

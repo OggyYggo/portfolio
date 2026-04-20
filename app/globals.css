@@ -138,6 +138,25 @@
   }
 }
 
+/* Lightbox theme overrides */
+:root {
+  --yarl__color_backdrop: rgba(0, 0, 0, 0.95);
+  --yarl__color_button: rgba(255, 255, 255, 0.8);
+  --yarl__color_button_active: rgba(255, 255, 255, 1);
+  --yarl__thumbnails_thumbnail_border_radius: 6px;
+  --yarl__thumbnails_thumbnail_active_border_color: hsl(var(--primary));
+}
+
+/* Restore cursor inside lightbox (body has cursor:none for custom cursor) */
+.yarl__root {
+  cursor: default !important;
+}
+.yarl__root button,
+.yarl__root [role="button"],
+.yarl__thumbnails_thumbnail {
+  cursor: pointer !important;
+}
+
 /* Hide custom cursor on touch devices */
 @media (pointer: coarse) {
   #cursor {

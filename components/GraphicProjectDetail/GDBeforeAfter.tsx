@@ -4,6 +4,8 @@ import Image from 'next/image'
 import { useState, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { Separator } from '@/components/ui/separator'
+import Lightbox from '@/components/ui/Lightbox'
+import { useLightbox } from '@/hooks/useLightbox'
 
 type Props = {
   heading: string
@@ -20,6 +22,12 @@ export default function GDBeforeAfter({
   const [sliderPosition, setSliderPosition] = useState(50)
   const containerRef = useRef<HTMLDivElement>(null)
   const isDragging = useRef(false)
+  const { open, index, openAt, close } = useLightbox()
+
+  const slides = [
+    { src: before, alt: beforeLabel, title: beforeLabel },
+    { src: after,  alt: afterLabel,  title: afterLabel  },
+  ]
 
   const handleMove = useCallback((clientX: number) => {
     if (!containerRef.current) return
@@ -56,6 +64,9 @@ export default function GDBeforeAfter({
             <Separator className="flex-1" />
           </div>
           <p className="text-muted-foreground leading-relaxed text-sm">{description}</p>
+          <p className="text-xs text-muted-foreground">
+            Drag to compare · Click either side to view full size
+          </p>
         </motion.div>
 
         {/* Interactive slider */}
@@ -73,53 +84,52 @@ export default function GDBeforeAfter({
           onTouchMove={handleTouchMove}
           onTouchEnd={handleMouseUp}
         >
-          {/* After image (full background) */}
-          <Image
-            src={after}
-            alt={afterLabel}
-            fill
-            className="object-cover"
-            sizes="100vw"
-          />
-
-          {/* Before image (clipped) */}
-          <div
-            className="absolute inset-0 overflow-hidden"
-            style={{ width: `${sliderPosition}%` }}
-          >
-            <Image
-              src={before}
-              alt={beforeLabel}
-              fill
-              className="object-cover"
-              sizes="100vw"
-            />
+          {/* After */}
+          <div onClick={() => openAt(1)} className="absolute inset-0 cursor-zoom-in">
+            <Image src={after} alt={afterLabel} fill className="object-cover" sizes="100vw" />
           </div>
 
-          {/* Slider line */}
+          {/* Before — clipped */}
           <div
-            className="absolute top-0 bottom-0 w-0.5 bg-white shadow-lg z-10"
+            className="absolute inset-0 overflow-hidden cursor-zoom-in"
+            style={{ width: `${sliderPosition}%` }}
+            onClick={() => openAt(0)}
+          >
+            <Image src={before} alt={beforeLabel} fill className="object-cover" sizes="100vw" />
+          </div>
+
+          {/* Divider */}
+          <div
+            className="absolute top-0 bottom-0 w-0.5 bg-white shadow-xl z-10 pointer-events-none"
             style={{ left: `${sliderPosition}%` }}
           >
-            {/* Slider handle */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-black">
-                <path d="M5 3L2 8L5 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M11 3L14 8L11 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+            <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-white shadow-lg flex items-center justify-center text-sm font-bold text-foreground">
+              ↔
             </div>
           </div>
 
           {/* Labels */}
-          <span className="absolute top-4 left-4 text-xs font-semibold text-white bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm z-10">
+          <span className="absolute bottom-4 left-4 z-10 text-xs font-bold text-white bg-black/50 px-2 py-1 rounded pointer-events-none">
             {beforeLabel}
           </span>
-          <span className="absolute top-4 right-4 text-xs font-semibold text-white bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm z-10">
+          <span className="absolute bottom-4 right-4 z-10 text-xs font-bold text-white bg-black/50 px-2 py-1 rounded pointer-events-none">
             {afterLabel}
           </span>
+
+          {/* Drag range — on top */}
+          <input
+            type="range"
+            min={0}
+            max={100}
+            value={sliderPosition}
+            onChange={(e) => setSliderPosition(Number(e.target.value))}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20"
+          />
         </motion.div>
 
       </div>
+
+      <Lightbox slides={slides} open={open} index={index} onClose={close} />
     </section>
   )
 }
