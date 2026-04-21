@@ -8,7 +8,7 @@ import { useLightbox } from '@/hooks/useLightbox'
 type Props = {
   heading: string
   description: string
-  images: { src: string; caption: string }[]
+  images: { src: string; caption: string; explanation?: string }[]
   figmaEmbed?: string
 }
 
@@ -69,7 +69,10 @@ export default function ProjectFinalDesigns({ heading, description, images, figm
                   </span>
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground">{img.caption}</p>
+              <p className="text-xs text-muted-foreground font-medium">{img.caption}</p>
+              {img.explanation && (
+                <p className="text-xs text-muted-foreground/80 leading-relaxed">{img.explanation}</p>
+              )}
             </motion.div>
           ))}
         </div>

@@ -106,6 +106,7 @@ export type Project = {
     images: {
       src: string
       caption: string
+      explanation?: string
     }[]
     figmaEmbed?: string
   }
@@ -177,7 +178,7 @@ export const projects: Project[] = [
     heroImage: '/images/Pedi Jobs.jpg',
     role: 'UI/UX Designer & UX Researcher',
     problemStatement:
-      'Job seekers in the pedicab industry had no centralized platform to find work — relying on word-of-mouth and outdated bulletin boards. We designed a mobile-first app to bridge the gap.',
+      'During my internship, I designed Pedi Jobs, a user-centered mobile application that streamlines the job application process for local job seekers by reducing complexity and improving usability.',
 
     overview: {
       client: 'Internship Project',
@@ -319,14 +320,34 @@ export const projects: Project[] = [
     },
 
     finalDesigns: {
-      heading: 'Final Designs',
+      heading: 'Features & Design Decisions',
       description:
-        'After 2 rounds of usability testing and iteration, here are the final screens. Every component was built in Figma with auto-layout for responsive behavior.',
+        'While designing Pedi Jobs, I focused on removing complexity from the job application process by creating intuitive features that guide users seamlessly from browsing to applying.',
       images: [
-        { src: '/images/Job Listingss.jpg', caption: 'Job Listings' },
-        { src: '/images/Job Details.jpg', caption: 'Job Details' },
-        { src: '/images/Application Form.jpg', caption: 'Application Form' },
-        { src: '/images/Mobile Experience.jpg', caption: 'Mobile Experience' },
+        {
+          src: '/images/Job Listing01.jpg',
+          caption: 'Home Screen',
+          explanation:
+            'I designed the home screen to balance clarity and functionality, enabling users to discover relevant jobs through categorized options, personalized matches, and recommendations, all while maintaining a simple and intuitive layout.',
+        },
+        {
+          src: '/images/Job Nearby.jpg',
+          caption: 'Jobs Nearby',
+          explanation:
+            'I designed the Nearby Jobs feature to enhance location-based job discovery by integrating an interactive map that allows users to quickly identify, explore, and access opportunities within their area.',
+        },
+        {
+          src: '/images/Job Resume Build.jpg',
+          caption: 'Resume Builder',
+          explanation:
+            'To reduce friction in the application process, I designed a guided 4-step resume builder that simplifies information input and prepares users for a fast, one-tap job application.',
+        },
+        {
+          src: '/images/SMS Push Notif.jpg',
+          caption: 'Job Application Updates',
+          explanation:
+            'To reduce uncertainty and improve user confidence, I designed a notification system that keeps users updated at every stage of their application, enabling faster responses and better engagement.',
+        },
       ],
     },
 
