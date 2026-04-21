@@ -72,7 +72,7 @@ export default function GDMockups({ heading, description, items }: Props) {
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                   <span className="text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity">
-                    🔍
+                    View
                   </span>
                 </div>
                 <span className="absolute bottom-4 left-4 text-xs font-semibold text-white bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm">
@@ -107,7 +107,7 @@ export default function GDMockups({ heading, description, items }: Props) {
                       {item.label}
                     </span>
                     <span className="text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity">
-                      🔍
+                      View
                     </span>
                   </div>
                 </motion.div>

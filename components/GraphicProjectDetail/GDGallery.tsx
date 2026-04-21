@@ -72,7 +72,7 @@ export default function GDGallery({ heading, images }: Props) {
                   </span>
                 )}
                 <span className="text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity ml-auto">
-                  🔍
+                  View
                 </span>
               </div>
             </motion.div>

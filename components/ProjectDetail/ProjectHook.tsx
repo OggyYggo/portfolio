@@ -57,7 +57,7 @@ export default function ProjectHook({ title, tagline, role, heroImage, problemSt
         />
         {/* Zoom hint */}
         <div className="absolute bottom-4 right-4 bg-black/40 text-white text-xs px-3 py-1.5 rounded-full backdrop-blur-sm flex items-center gap-1.5">
-          <span>🔍</span> Click to zoom
+          <span>View</span>
         </div>
       </motion.div>
 

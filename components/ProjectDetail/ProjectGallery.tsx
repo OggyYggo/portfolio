@@ -49,7 +49,7 @@ export default function ProjectGallery({ images }: Props) {
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-end justify-between p-4">
                 <p className="text-sm font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity">{img.caption}</p>
                 <span className="text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity">
-                  🔍
+                  View
                 </span>
               </div>
             </motion.div>

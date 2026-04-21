@@ -7,6 +7,7 @@ import Captions from 'yet-another-react-lightbox/plugins/captions'
 import 'yet-another-react-lightbox/styles.css'
 import 'yet-another-react-lightbox/plugins/thumbnails.css'
 import 'yet-another-react-lightbox/plugins/captions.css'
+import { ZoomIn, ZoomOut } from 'lucide-react'
 
 export type LightboxSlide = {
   src: string
@@ -58,6 +59,10 @@ export default function Lightbox({ slides, open, index, onClose }: Props) {
       carousel={{
         finite: false,              // loops around
         preload: 2,
+      }}
+      render={{
+        iconZoomIn: () => <ZoomIn size={20} color="#fff" />,
+        iconZoomOut: () => <ZoomOut size={20} color="#fff" />,
       }}
       animation={{
         fade: 250,
