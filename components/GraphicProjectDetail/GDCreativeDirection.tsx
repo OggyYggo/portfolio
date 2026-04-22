@@ -9,7 +9,7 @@ import { useLightbox } from '@/hooks/useLightbox'
 type Props = {
   heading: string
   approach: string
-  moodboard: { images: string[]; caption: string }
+  moodboard?: { images: string[]; caption: string }
   palette: { name: string; hex: string; usage: string }[]
   typography: { role: string; fontName: string; sample: string; rationale: string }[]
 }
@@ -19,12 +19,12 @@ export default function GDCreativeDirection({
 }: Props) {
   const { open, index, openAt, close } = useLightbox()
 
-  const slides = moodboard.images.map((src, i) => ({
+  const slides = moodboard?.images.map((src, i) => ({
     src,
     alt: `Moodboard image ${i + 1}`,
     title: 'Moodboard',
     description: moodboard.caption,
-  }))
+  })) ?? []
 
   return (
     <section className="py-20 bg-muted/20">
@@ -48,6 +48,7 @@ export default function GDCreativeDirection({
         </motion.div>
 
         {/* Moodboard — clickable grid */}
+        {moodboard && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -87,6 +88,7 @@ export default function GDCreativeDirection({
             {moodboard.caption}
           </p>
         </motion.div>
+        )}
 
         {/* Color Palette */}
         <motion.div

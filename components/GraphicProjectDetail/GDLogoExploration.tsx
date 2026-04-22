@@ -140,12 +140,13 @@ export default function GDLogoExploration({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               { src: finalMark.image, alt: 'Light', bg: 'bg-white', slideIndex: directions.length },
-              { src: finalMark.darkImage, alt: 'Dark', bg: 'bg-foreground', slideIndex: directions.length + 1 },
+              { src: finalMark.darkImage, alt: 'Dark', bg: '', slideIndex: directions.length + 1, style: { backgroundColor: '#017165' } },
             ].map((item) => (
               <div
                 key={item.alt}
                 onClick={() => openAt(item.slideIndex)}
                 className={`relative aspect-video rounded-2xl overflow-hidden border cursor-zoom-in group ${item.bg}`}
+                style={item.style}
               >
                 <Image
                   src={item.src}

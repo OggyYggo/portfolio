@@ -32,7 +32,7 @@ export type GDProject = {
   creativeDirection: {
     heading: string
     approach: string              // Your overall creative thinking
-    moodboard: {
+    moodboard?: {
       images: string[]            // 4–6 moodboard images
       caption: string
     }
@@ -158,14 +158,6 @@ export const gdProjects: GDProject[] = [
     creativeDirection: {
       heading: 'Creative Direction',
       approach: 'The creative direction integrates subtle Christian symbolism representing the Book, the Blood, and the Blessed Hope into a clean and modern healthcare identity that maintains professionalism while reflecting the client’s faith.',
-      moodboard: {
-        images: [
-          '/images/gd-projects/bloom-bakery/mood-1.jpg',
-          '/images/gd-projects/bloom-bakery/mood-2.jpg',
-          '/images/gd-projects/bloom-bakery/mood-3.jpg',
-        ],
-        caption: 'Moodboard — refined warmth, vintage French patisserie stripped of fussiness',
-      },
       palette: [
         { name: 'Cyan', hex: '#01e1bf', usage: 'Primary background — packaging, stationery' },
         { name: 'Dark Cyan', hex: '#00c3af', usage: 'Primary text, logo mark' },
@@ -219,8 +211,8 @@ export const gdProjects: GDProject[] = [
         },
       ],
       finalMark: {
-        image: '/1stMed/Lightt.jpg',
-        darkImage: '/1stMed/Darkk.jpg',
+        image: '/1stMed/LogoA.png',
+        darkImage: '/1stMed/LogoA.png',
         caption: 'Final logo — light and dark versions',
       },
     },
@@ -232,23 +224,13 @@ export const gdProjects: GDProject[] = [
       components: [
         {
           title: 'Color System',
-          image: '/1stmed/Color System.jpg',
+          image: '/1stmed/Color System Final.jpg',
           description: 'Five colors with defined usage rules — primary, secondary, and seasonal accents.',
         },
         {
           title: 'Type Scale',
-          image: '/1stmed/Type Scale.jpg',
+          image: '/1stmed/Typescale.jpg',
           description: 'Defined hierarchy from display headings to caption text across print and digital.',
-        },
-        {
-          title: 'Texture & Pattern',
-          image: '/1stmed/Texture & Pattern.jpg',
-          description: 'A custom geometric pattern derived from the logo mark — used on tissue paper, bags, and seasonal packaging.',
-        },
-        {
-          title: 'Iconography',
-          image: '/1stmed/Iconography.jpg',
-          description: 'A small set of hand-drawn icons for menu categories — pastries, breads, drinks, seasonal.',
         },
       ],
     },
@@ -260,7 +242,7 @@ export const gdProjects: GDProject[] = [
         { label: 'Packaging', image: '/Mockups/Tote.jpg', fullWidth: true },
         { label: 'Business Cards', image: '/Mockups/Staff ID.jpg' },
         { label: 'Umbrella', image: '/Mockups/Umbrella.jpg' },
-        { label: 'Tote Bag', image: '/Mockups/Tote.jpg' },
+        { label: 'Tote Bag', image: '/Mockups/Mug Design.jpg' },
         { label: 'Signage', image: '/Mockups/Signage.jpg', fullWidth: true },
         { label: 'Social Media Post', image: '/Mockups/Social Media Post.jpg' },
         { label: 'Staff Shirt', image: '/Mockups/Shirt.jpg' },
@@ -271,12 +253,10 @@ export const gdProjects: GDProject[] = [
     gallery: {
       heading: 'Final Deliverables',
       images: [
-        { src: '/images/gd-projects/bloom-bakery/final-1.jpg', span: 'wide' },
-        { src: '/images/gd-projects/bloom-bakery/final-2.jpg', caption: 'Primary logo suite' },
-        { src: '/images/gd-projects/bloom-bakery/final-3.jpg', caption: 'Secondary marks' },
-        { src: '/images/gd-projects/bloom-bakery/final-4.jpg', span: 'wide', caption: 'Brand guidelines cover' },
-        { src: '/images/gd-projects/bloom-bakery/final-5.jpg', caption: 'Packaging system' },
-        { src: '/images/gd-projects/bloom-bakery/final-6.jpg', caption: 'Social media kit' },
+        { src: '/1stmed/Primary Logo Suite.jpg', caption: 'Primary logo suite' },
+        { src: '/1stmed/Secondary Suite.jpg', caption: 'Secondary marks' },
+        { src: '/Mockups/Tote.jpg', caption: 'Packaging system' },
+        { src: '/1stmed/02.jpg', caption: 'Social media kit' },
       ],
     },
 
@@ -291,9 +271,9 @@ export const gdProjects: GDProject[] = [
 
     clientQuote: {
       quote: 'We\'ve had customers come in just because they saw our new bags and wanted to know who we were. The rebrand paid for itself in the first month.',
-      name: 'Sarah Chen',
-      title: 'Founder, Bloom Bakery Co.',
-      avatar: '/images/gd-projects/bloom-bakery/client-avatar.jpg',
+      name: 'Jyro Alingasa',
+      title: 'Founder, 1STMED PHARMACY',
+      avatar: '/1stmed/Avatar.jpg',
     },
   },
 ]
