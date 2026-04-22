@@ -593,5 +593,5 @@ export const projects: Project[] = [
 
 ]
 
-export const categories = ['All', 'UI/UX Design', 'Development', 'Branding', 'Motion'] as const
+export const categories = ['All', 'UI/UX Design', 'UI/UX Design & UX Research', 'Branding'] as const
 export type Category = typeof categories[number]
