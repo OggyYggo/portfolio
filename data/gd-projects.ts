@@ -211,8 +211,8 @@ export const gdProjects: GDProject[] = [
         },
       ],
       finalMark: {
-        image: '/1stMed/LogoA.png',
-        darkImage: '/1stMed/LogoA.png',
+        image: '/1stmed/LogoA.png',
+        darkImage: '/1stmed/LogoA.png',
         caption: 'Final logo — light and dark versions',
       },
     },
