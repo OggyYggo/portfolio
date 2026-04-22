@@ -240,7 +240,7 @@ export const gdProjects: GDProject[] = [
       description: 'Design only exists in context. Here\'s how the brand lives across every touchpoint.',
       items: [
         { label: 'Packaging', image: '/Mockups/Tote.jpg', fullWidth: true },
-        { label: 'Business Cards', image: '/Mockups/Staff ID.jpg' },
+        { label: 'Staff ID', image: '/Mockups/Staff ID.jpg' },
         { label: 'Umbrella', image: '/Mockups/Umbrella.jpg' },
         { label: 'Tote Bag', image: '/Mockups/Mug Design.jpg' },
         { label: 'Signage', image: '/Mockups/Signage.jpg', fullWidth: true },
