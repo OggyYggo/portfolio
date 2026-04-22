@@ -153,26 +153,6 @@ export const projects: Project[] = [
     description: 'Designed a mobile app for Pedi Jobs.',
     year: '2026',
   
-    gallery: [
-      { src: '/images/Job Listingss.jpg', caption: 'Job Listings' },
-      { src: '/images/Job Details.jpg', caption: 'Job Details' },
-      { src: '/images/projects/Application Form.jpg', caption: 'Application Form' },
-      { src: '/images/projects/Mobile Experience.jpg', caption: 'Mobile Experience' },
-    ],
-    strategy: {
-      heading: 'DESIGN STRATEGY',
-      paragraphs: [
-        'We built a headless commerce experience prioritizing speed and conversion. Every interaction — from product browsing to checkout — was optimized for minimal load times.',
-        'The design system uses a neutral palette with bold product imagery, letting the merchandise take center stage while maintaining brand consistency.',
-        'Integration with Shopify APIs ensures real-time inventory, seamless payments, and a backend that scales with the business.',
-      ],
-    },
-    parallaxImage: '/images/projects/Pedi Jobs.jpg',
-    summary: [
-      'A fully headless e-commerce experience powered by Next.js and Shopify, designed for speed and conversion.',
-      'The storefront features dynamic product pages, real-time cart updates, and a frictionless checkout flow.',
-      'Optimized for SEO and performance, delivering sub-second page loads across all devices.',
-    ],
 
     // ── Case Study Fields ─────────────────────────────
     heroImage: '/images/Pedi Jobs.jpg',
@@ -205,7 +185,7 @@ export const projects: Project[] = [
     research: {
       heading: 'Research Process',
       intro: [
-        'User surveys to gather insights on traveler behavior and frustrations',
+        'User surveys to gather insights on local jobseekers and frustrations',
         'Data visualization (graphs) to analyze patterns',
         'Competitive audit of existing job apps',
         'Analysis of user feedback to identify pain points',
@@ -236,7 +216,7 @@ export const projects: Project[] = [
         {
           title: 'User Persona',
           description:
-            'Created 2 primary personas — a job-seeking driver and a fleet operator — to anchor all design decisions in real user needs.',
+            'Created 2 primary personas — a job-seeking driver and a fresh graduate — to anchor all design decisions in real user needs.',
           stat: '2 personas',
           personas: [
             {
@@ -428,7 +408,188 @@ export const projects: Project[] = [
       'Built with Next.js for performance and SEO, the site delivers a fast, accessible experience across all devices.',
     ],
   },
-  
+
+  {
+    slug: 'cec-grad-connect',
+    title: 'CeC Grad Connect',
+    tagline:
+      'The Ce-c Alumni Information System Hub is a secure web-based application designed to streamline data tracking and modernize information management for Cristal e-College Bohol by replacing traditional paper-based methods.',
+    category: 'UI/UX Design & UX Research',
+    client: 'Capstone / Thesis Project',
+    timeline: '',
+    image: '/CeC/CeC.jpeg',
+    link: '',
+    description:
+      'The Ce-c Alumni Information System Hub is a secure web-based application designed to streamline data tracking and modernize information management for Cristal e-College Bohol by replacing traditional paper-based methods.',
+    year: '2026',
+
+
+    // ── Case Study Fields ─────────────────────────────
+    heroImage: '/CeC/CeC.jpeg',
+    role: 'UI/UX Designer & Full-Stack Developer',
+    problemStatement:
+      'Cristal e-College Bohol relied on outdated paper-based methods for tracking alumni data, making it difficult to manage records, maintain connections, and generate insights — CeC Grad Connect modernizes this through a secure, centralized web-based system.',
+
+    overview: {
+      client: 'Capstone / Thesis Project',
+      clientLabel: 'Project Type',
+      timeline: 'June to December 2025',
+      role: 'UI/UX Designer',
+      tools: ['Figma', 'Adobe Photoshop'],
+      link: 'alumni.cec.edu.ph',
+    },
+
+    problem: {
+      heading: 'The Problem',
+      body: [
+        'The Alumni Office still uses paper-based forms to collect alumni information, which is time-consuming and error-prone. The communication between the Alumni Office and Students is inefficient, often requiring in-person follow-ups.',
+      ],
+      goals: [
+        'To develop a web-based information system to manage alumni-related services for Cristal e-College.',
+        'To enable the online application of student requirements and forms.',
+        'To design a user-friendly dashboard for alumni to view announcements and monitor the status of their Alumni ID and yearbook.',
+        'To provide an organized platform where graduation photos can be accessed via organized external links (e.g., Google Drive).'
+      ],
+    },
+
+    research: {
+      heading: 'Research Process',
+      intro: [
+        'Alumni surveys to gather insights on frustrations',
+        'Data visualization (graphs) to analyze patterns',
+        'Analysis of user feedback to identify pain points',
+      ],
+      methods: [
+        {
+          title: 'Competitive Analysis',
+          description:
+            'Analyzed 5 existing job apps to identify gaps and opportunities for improvement.',
+          stat: '5 apps analyzed',
+          proofImage: {
+            src: '/research & discovery/Competitive Analysis.jpg',
+            alt: 'Competitive analysis of job apps',
+            caption: 'Competitive analysis of existing job apps — identifying gaps and opportunities',
+          },
+        },
+        {
+          title: 'Data Visualization',
+          description:
+            'This graph shows the distribution of survey responses across different age groups and experience levels.',
+          stat: '20 respondents',
+          proofImage: {
+            src: '/research & discovery/Survey Analysis.jpg',
+            alt: 'Google Forms survey results',
+            caption: 'Survey results — validating pain points and feature priorities across 50+ respondents',
+          },
+        },
+        {
+          title: 'User Persona',
+          description:
+            'Created 2 primary personas — a job-seeking driver and a fresh graduate — to anchor all design decisions in real user needs.',
+          stat: '2 personas',
+          personas: [
+            {
+              name: 'Michael Muring',
+              role: 'Construction Worker (TESDA Certified)',
+              avatar: '/images/Michael.jpg',
+              quote: '"I need to know which jobs are legit and near me so I don’t waste time and effort."',
+              goals: [
+                'Find stable and nearby job opportunities',
+                'Apply for jobs that match his skills and certifications',
+                'Get hired faster without going through middlemen',
+              ],
+              painPoints: [
+                'Hard to identify legitimate job postings',
+                'Many job platforms are not designed for mobile use',
+                'Limited ways to showcase skills and certifications',
+              ],
+            },
+            {
+              name: 'Jandy Iaron',
+              role: 'Fresh Graduate (Senior High – STEM)',
+              avatar: '/images/Jandy.jpg',
+              quote: '“I just want a simple way to apply to jobs without going through too many steps.”',
+              goals: [
+                'Find entry-level job opportunities that match my skills',
+                'Apply for jobs with minimal effort and time',
+                'Avoid complicated application processes',
+              ],
+              painPoints: [
+                'Job applications require too many steps',
+                'No centralized dashboard for hiring',
+                'Difficult to communicate with applicants at scale',
+              ],
+            },
+          ],
+        },
+        {
+          title: 'Low-Fidelity Designs',
+          description:
+            'These sketches show the initial layout and user flow concepts created during the early design phase.',
+          stat: 'Early Phase',
+          proofImage: {
+            src: '/images/Low Fri.png',
+            alt: 'Low-fidelity wireframes in Figma',
+            caption: 'Figma low-fidelity wireframes — initial layout and navigation flows for jobseeker views',
+          },
+        },
+        {
+          title: 'User Flow',
+          description:
+            'Mapped out the end-to-end user journey for alumni to ensure seamless navigation and task completion.',
+          stat: 'flows',
+          proofImage: {
+            src: '/CeC/Process.png',
+            alt: 'User flow diagram',
+            caption: 'User flow diagram — mapping key paths for alumni management workflows',
+          },
+        },
+      ],
+    },
+
+    decisions: {
+      heading: 'Design Decisions',
+      items: [
+        {
+          decision: '',
+          reasoning: '',
+        },
+      ],
+    },
+
+    finalDesigns: {
+      heading: 'Features & Design Decisions',
+      description: '',
+      images: [
+        {
+          src: '',
+          caption: '',
+          explanation: '',
+        },
+      ],
+    },
+
+    results: {
+      heading: 'Results',
+      description: '',
+      metrics: [
+        { value: '', label: '' },
+      ],
+      qualitative: [
+        '',
+      ],
+    },
+
+    reflection: {
+      heading: 'Reflection',
+      body: [
+        '',
+      ],
+      wouldDoDifferently: [
+        '',
+      ],
+    },
+  },
 
 ]
 
